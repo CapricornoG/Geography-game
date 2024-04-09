@@ -60,3 +60,32 @@ h1{
     text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
     text-align: center;
 }
+
+
+/* Button Styles */
+
+.buttons {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    margin: 2rem 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    background-color: #00796b;
+    color: white;
+    border: 0.2rem solid transparent;
+    border-radius: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 150ms;
+}
+
+.btn:hover {
+    background-color: #05584fd7;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    border-color: transparent;
+}
