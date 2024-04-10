@@ -56,7 +56,6 @@ let score = 0;
 let displayedQuestions = [];
 const questionElement = document.getElementById('question');
 const optionsElement = document.getElementById('options');
-const optionButtons = [];
 const timerDisplay = document.getElementById('timer');
 const scoreDisplay = document.getElementById('your-score');
 const questionNumberElement = document.getElementById('question-number');
@@ -84,8 +83,8 @@ function displayQuestion() {
         timerDisplay.textContent = `Time Left: ${timeLeft} seconds`;
     }
 
-    const questionNumber = displayedQuestions.length + 1;
     const totalQuestions = questions.length;
+    const questionNumber = Math.min(displayedQuestions.length + 1, totalQuestions);
     questionNumberElement.innerHTML = `Question <span style="color: #FF5733;">${questionNumber}</span> of ${totalQuestions}`;
 
     if (displayedQuestions.length === questions.length) {
