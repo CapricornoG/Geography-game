@@ -71,7 +71,8 @@ animation: rotate 4s linear infinite;
     opacity: 0;
     transform: scale(0);
 }
-h1{
+h1,
+h2{
     margin-top: 1rem;
     margin-bottom: 1.5rem;
     font-family: 'Montserrat', sans-serif;
@@ -176,6 +177,18 @@ h3{
 
 .option:hover {
     background-color: var(--color_hover);
+}
+
+
+#question-info {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#question-number {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 900;
 }
 
 
