@@ -182,6 +182,7 @@ h3{
 
 #question-info {
     text-align: center;
+    margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
@@ -189,6 +190,29 @@ h3{
     font-size: 2rem;
     margin: 0;
     font-weight: 900;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 70rem) {
+
+    #game {
+        display: block;
+    }
+    
+    #game_page .container {
+        padding: 1rem;
+    }
+    
+    #game-items {
+        text-align: center;
+    }
+    
+    #buttons-game {
+        margin-top: 2rem;
+        text-align: center;
+    }
+    
 }
 
 
