@@ -210,7 +210,7 @@ h3{
 }
 
 #score-display {
-    background-color: #333;
+    background-color:var(--color_txt);
     width: 10rem;
     height: 10rem;
     padding: 1rem;
@@ -256,7 +256,7 @@ h3{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #333;
+    background-color: var(--color_txt);
     width: 20rem;
     height: 20rem;
     padding: 1rem;
@@ -292,7 +292,7 @@ margin-bottom: 2rem;
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
     font-weight: bold;
-    color: #05584f;
+    color: var(--color_main);
     margin-top: 2rem;
     text-align: center;
 }
@@ -317,91 +317,144 @@ margin-bottom: 2rem;
         margin-top: 2rem;
         text-align: center;
     }
+
+    
+#score-display-end {
+    width: 15rem;
+    height: 15rem;
+    font-size: 1.8rem;
+}
+
+.score-end {
+    font-size: 1.8rem;
+    padding-top: 5rem;
+}
+
+.your-score-end {
+    font-size: 3rem;
+}
+
+#personalised-message {
+    font-size: 1.8rem;
+}
     
 }
 
 
 @media screen and (max-width: 48rem) {
 
-    .logo {
-        font-size: 6rem;
-    }
-    
-    h1 {
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
-        text-align: center;
-    }
-    
-    .buttons {
-        flex-direction: column;
-        margin-top: 2rem;
-    }
-    
-    .btn {
-        margin: 1rem;
-        padding: 1rem 1.5rem;
-        font-size: 1.4rem;
-    }
-    
-    #game {
-        display: block;
-    }
-    
-    #game_page .container {
-        padding: 1rem;
-    }
-    
-    #game-items {
-        padding-top: 1rem;
-        text-align: center;
-    }
-    
-    #buttons-game {
-        padding-top: 2rem;
-        text-align: center;
-    }
-    
-    #question h2 {
-        font-size: 1.8rem;
-    }
-    
-    .option {
-        font-size: 1.4rem;
-        padding: 0.6rem 1.2rem;
-    }
-    
-    .container {
-        padding: 1rem;
-    }
-    
-    p,
-    ol,
-    li {
-        font-size: 1.4rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .container ol {
-        margin-bottom: 1rem;
-        padding: 0 1rem;
-        text-align: center;
-    }
-    
-    .container ol li {
-        margin-bottom: 0.5rem;
-        text-align: left;
-    }
-    
-    .timer {
-        font-size: 1.5rem;
-    }
-    
-    #question-number {
-        font-size: 1.5rem;
-    }
-    
-    }
+   
+.logo {
+    font-size: 6rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.buttons {
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.btn {
+    margin: 1rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+}
+
+#game {
+    display: block;
+}
+
+#game_page .container {
+    padding: 1rem;
+}
+
+#game-items {
+    padding-top: 1rem;
+    text-align: center;
+}
+
+#buttons-game {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+#question h2 {
+    font-size: 1.8rem;
+}
+
+.option {
+    font-size: 1.4rem;
+    padding: 0.6rem 1.2rem;
+}
+
+.container {
+    padding: 1rem;
+}
+
+p,
+ol,
+li {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.container ol {
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.container ol li {
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+#score-display {
+    width: 7rem;
+    height: 7rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+}
+
+.score {
+    font-size: 1.2rem;
+}
+
+.your-score {
+    font-size: 1.5rem;
+}
+
+.timer {
+    font-size: 1.5rem;
+}
+
+#question-number {
+    font-size: 1.5rem;
+}
+
+#score-display-end {
+    width: 15rem;
+    height: 15rem;
+    font-size: 1.4rem;
+}
+
+.score-end {
+    font-size: 1.4rem;
+    padding-top: 3rem;
+}
+
+.your-score-end {
+    font-size: 2.5rem;
+}
+
+}
     
 
 
