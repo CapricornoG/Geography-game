@@ -50,7 +50,6 @@ const questions = [
         answer: "Himalayas"
     }
 ];
-
 let currentQuestionIndex = 0;
 let score = 0;
 let displayedQuestions = [];
@@ -60,7 +59,7 @@ const timerDisplay = document.getElementById('timer');
 const scoreDisplay = document.getElementById('your-score');
 const questionNumberElement = document.getElementById('question-number');
 
-let timerInterval = 1000;
+const timerInterval = 1000;
 let timer;
 let timeLeft;
 
@@ -72,7 +71,6 @@ function displayQuestion() {
     timer = setInterval(() => {
         timeLeft--;
         updateTimerDisplay();
-
         if (timeLeft === 0) {
             clearInterval(timer);
             checkAnswer('timeout');
@@ -87,7 +85,8 @@ function displayQuestion() {
     const questionNumber = Math.min(displayedQuestions.length + 1, totalQuestions);
     questionNumberElement.innerHTML = `Question <span style="color: #FF5733;">${questionNumber}</span> of ${totalQuestions}`;
 
-    if (displayedQuestions.length === questions.length) {
+    if (displayedQuestions.length === totalQuestions) {
+        localStorage.setItem("mostRecentScore", score);
         return window.location.assign("./end_game.html");
     }
 
@@ -98,22 +97,17 @@ function displayQuestion() {
     questionElement.innerHTML = `<h2 class="question">${currentQuestion.question}</h2>`;
 
     optionsElement.innerHTML = '';
-
     currentQuestion.options.forEach(option => {
         const button = document.createElement('button');
         button.innerText = option;
         button.classList.add('option');
         button.addEventListener('click', () => checkAnswer(option, currentQuestion));
         optionsElement.appendChild(button);
-        optionButtons.push(button);
     });
-
-    displayQuestion.optionButtons = optionButtons;
 }
 
 function checkAnswer(selectedOption, currentQuestion) {
     clearInterval(timer);
-
     if (!currentQuestion) {
         console.log("Timer ran out!");
         displayQuestion();
@@ -131,6 +125,7 @@ function checkAnswer(selectedOption, currentQuestion) {
     
     const optionButtons = Array.from(document.querySelectorAll('.option'));
     const selectedButton = optionButtons.find(button => button.innerText.trim().toLowerCase() === cleanedSelectedOption);
+
     const correctButton = optionButtons.find(button => button.innerText.trim().toLowerCase() === cleanedCorrectAnswer);
 
     if (selectedButton) {
@@ -149,7 +144,6 @@ function checkAnswer(selectedOption, currentQuestion) {
         displayQuestion();
     }, 1000);
 }
-
 
 function updateScoreDisplay() {
     scoreDisplay.textContent = score;
