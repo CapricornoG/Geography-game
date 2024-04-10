@@ -248,6 +248,54 @@ h3{
     text-transform: uppercase;
 }
 
+/* end_game */
+
+
+#score-display-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    width: 20rem;
+    height: 20rem;
+    padding: 1rem;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.score-info {
+    margin-bottom: 1rem;
+}
+
+.h2-end{
+margin-bottom: 2rem;
+}
+
+.score-end {
+    color: white;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    padding-top: 7rem;
+}
+
+.your-score-end {
+    font-weight: bold;
+    color: white;
+    font-size: 4rem;
+}
+
+#personalised-message{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #05584f;
+    margin-top: 2rem;
+    text-align: center;
+}
 
 /* Media Queries */
 
