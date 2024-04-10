@@ -116,7 +116,7 @@ h1{
 
 p, ol, li {
     font-size: 1.8rem;
-    color: #555;
+    color: var(--color_txt);
     margin-bottom: 1rem;
 }
 
