@@ -114,10 +114,32 @@ h1{
 
 /* rules page */
 
+p, ol, li {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.container ol {
+    margin-bottom: 1.5rem;
+}
+
+.container ol li {
+    margin-bottom: 1rem;
+    list-style-type: decimal;
+}
+
+h3{
+    font-size: 1.8rem;
+    text-align: center;
+}
+
 .clr-green{
+    font-weight: 900;
     color: green;
 }
 
 .clr-red{
+    font-weight: 900;
     color:red;
 }
