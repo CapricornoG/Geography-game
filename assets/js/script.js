@@ -14,6 +14,7 @@ const questions = [
         options: ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
         answer: "Pacific Ocean"
     },
+    
     {
         question: "Which country is known as the 'Land of the Rising Sun'?",
         options: ["China", "Japan", "South Korea", "Thailand"],
@@ -53,13 +54,10 @@ const questions = [
 
 let currentQuestionIndex = 0;
 let score = 0;
-
+let displayedQuestions = []; 
 const questionElement = document.getElementById('question');
 const optionsElement = document.getElementById('options');
-const scoreElement = document.getElementById('score');
-
-let displayedQuestions = []; 
-
+const optionButtons = []; 
 function displayQuestion() {
     if (displayedQuestions.length === questions.length) {
         endGame(); 
@@ -69,36 +67,53 @@ function displayQuestion() {
     let remainingQuestions = questions.filter(question => !displayedQuestions.includes(question));
     const randomIndex = Math.floor(Math.random() * remainingQuestions.length);
     const currentQuestion = remainingQuestions[randomIndex];
-    displayedQuestions.push(currentQuestion); 
-    questionElement.innerHTML = `<h2 class="question">${currentQuestion.question}</h2>`; 
-    optionsElement.innerHTML = ''; 
+    displayedQuestions.push(currentQuestion);
+    questionElement.innerHTML = `<h2 class="question">${currentQuestion.question}</h2>`;
+
+    optionsElement.innerHTML = '';
 
     currentQuestion.options.forEach(option => {
         const button = document.createElement('button');
         button.innerText = option;
         button.classList.add('option');
-        button.addEventListener('click', () => checkAnswer(option, currentQuestion)); 
+        button.addEventListener('click', () => checkAnswer(option, currentQuestion));
         optionsElement.appendChild(button);
+        optionButtons.push(button); 
     });
-}
 
-function checkAnswer(selectedOption, currentQuestion) {
     
+    displayQuestion.optionButtons = optionButtons;
+}
+function checkAnswer(selectedOption, currentQuestion) {
     const cleanedSelectedOption = selectedOption.trim().toLowerCase();
     const cleanedCorrectAnswer = currentQuestion.answer.trim().toLowerCase();
+    const classToApply = cleanedSelectedOption === cleanedCorrectAnswer ? 'correct' : 'incorrect';
+    
+    
+    const optionButtons = Array.from(document.querySelectorAll('.option'));
+    const selectedButton = optionButtons.find(button => button.innerText.trim().toLowerCase() === cleanedSelectedOption);
 
-    console.log("Selected Option:", cleanedSelectedOption);
-    console.log("Correct Answer:", cleanedCorrectAnswer);
+    
+    const correctButton = optionButtons.find(button => button.innerText.trim().toLowerCase() === cleanedCorrectAnswer);
 
-    if (cleanedSelectedOption === cleanedCorrectAnswer) {
-        score++;
+    if (selectedButton) {
+        selectedButton.classList.add(classToApply); 
     }
 
-    if (displayedQuestions.length < questions.length) { 
-        displayQuestion();
-    } else {
-        endGame();
-    }
+   
+    optionButtons.forEach(button => {
+        button.disabled = true;
+    });
+
+   
+    setTimeout(() => {
+        optionButtons.forEach(button => {
+            button.classList.remove('correct', 'incorrect'); 
+            button.disabled = false; 
+        });
+        displayQuestion(); 
+    }, 1000); 
 }
+
 
 displayQuestion();
