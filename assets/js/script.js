@@ -89,8 +89,7 @@ function displayQuestion() {
     questionNumberElement.innerHTML = `Question <span style="color: #FF5733;">${questionNumber}</span> of ${totalQuestions}`;
 
     if (displayedQuestions.length === questions.length) {
-        endGame();
-        return;
+        return window.location.assign("./end_game.html");
     }
 
     let remainingQuestions = questions.filter(question => !displayedQuestions.includes(question));
