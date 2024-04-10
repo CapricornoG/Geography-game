@@ -50,3 +50,25 @@ const questions = [
         answer: "Himalayas"
     }
 ];
+
+function displayQuestion() {
+    const randomIndex = Math.floor(Math.random() * questions.length);
+    const currentQuestion = questions[randomIndex];
+    const questionElement = document.getElementById('question');
+    const optionsElement = document.getElementById('options');
+
+    // Update HTML content to display the question and options
+    questionElement.innerText = currentQuestion.question;
+
+    optionsElement.innerHTML = ''; // Clear previous options
+
+    currentQuestion.options.forEach(option => {
+        const button = document.createElement('button');
+        button.innerText = option;
+        button.classList.add('option');
+        optionsElement.appendChild(button);
+    });
+}
+
+// Call the function to display the first question
+displayQuestion();
