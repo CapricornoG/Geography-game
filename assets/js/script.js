@@ -51,24 +51,54 @@ const questions = [
     }
 ];
 
+let currentQuestionIndex = 0;
+let score = 0;
+
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+const scoreElement = document.getElementById('score');
+
+let displayedQuestions = []; 
+
 function displayQuestion() {
-    const randomIndex = Math.floor(Math.random() * questions.length);
-    const currentQuestion = questions[randomIndex];
-    const questionElement = document.getElementById('question');
-    const optionsElement = document.getElementById('options');
+    if (displayedQuestions.length === questions.length) {
+        endGame(); 
+        return;
+    }
 
-    // Update HTML content to display the question and options
-    questionElement.innerText = currentQuestion.question;
-
-    optionsElement.innerHTML = ''; // Clear previous options
+    let remainingQuestions = questions.filter(question => !displayedQuestions.includes(question));
+    const randomIndex = Math.floor(Math.random() * remainingQuestions.length);
+    const currentQuestion = remainingQuestions[randomIndex];
+    displayedQuestions.push(currentQuestion); 
+    questionElement.innerHTML = `<h2 class="question">${currentQuestion.question}</h2>`; 
+    optionsElement.innerHTML = ''; 
 
     currentQuestion.options.forEach(option => {
         const button = document.createElement('button');
         button.innerText = option;
         button.classList.add('option');
+        button.addEventListener('click', () => checkAnswer(option, currentQuestion)); 
         optionsElement.appendChild(button);
     });
 }
 
-// Call the function to display the first question
+function checkAnswer(selectedOption, currentQuestion) {
+    
+    const cleanedSelectedOption = selectedOption.trim().toLowerCase();
+    const cleanedCorrectAnswer = currentQuestion.answer.trim().toLowerCase();
+
+    console.log("Selected Option:", cleanedSelectedOption);
+    console.log("Correct Answer:", cleanedCorrectAnswer);
+
+    if (cleanedSelectedOption === cleanedCorrectAnswer) {
+        score++;
+    }
+
+    if (displayedQuestions.length < questions.length) { 
+        displayQuestion();
+    } else {
+        endGame();
+    }
+}
+
 displayQuestion();
