@@ -13,7 +13,57 @@ const loader = document.getElementById('loader');
 const game = document.getElementById('game_page');
 
 
-
+const backupQuestions = [
+    {
+        question: "What is the capital of Italy?",
+        answers: ["London", "Berlin", "Paris", "Rome"],
+        correctAnswer: "Rome"
+    },
+    {
+        question: "What is the currency of Japan?",
+        answers: ["Yuan", "Euro", "Yen", "Dollar"],
+        correctAnswer: "Yen"
+    }, {
+        question: "What is the capital of Italy?",
+        answers: ["London", "Berlin", "Paris", "Rome"],
+        correctAnswer: "Rome"
+    },
+    {
+        question: "What is the currency of Japan?",
+        answers: ["Yuan", "Euro", "Yen", "Dollar"],
+        correctAnswer: "Yen"
+    },
+    {
+        question: "Which country is known as the 'Land of the Rising Sun'?",
+        answers: ["China", "Japan", "South Korea", "Thailand"],
+        correctAnswer: "Japan"
+    },
+    {
+        question: "What is the longest river in the world?",
+        answers: ["Nile", "Amazon", "Yangtze", "Mississippi"],
+        correctAnswer: "Nile"
+    },
+    {
+        question: "Which continent is the least populated?",
+        answers: ["Africa", "Europe", "Australia", "Antarctica"],
+        correctAnswer: "Antarctica"
+    },
+    {
+        question: "What is the official language of Brazil?",
+        answers: ["Portuguese", "Spanish", "English", "French"],
+        correctAnswer: "Portuguese"
+    },
+    {
+        question: "Which desert is the largest in the world?",
+        answers: ["Sahara Desert", "Arabian Desert", "Gobi Desert", "Antarctic Desert"],
+        correctAnswer: "Sahara Desert"
+    },
+    {
+        question: "Which mountain range is the highest in the world?",
+        answers: ["Rocky Mountains", "Andes", "Himalayas", "Alps"],
+        correctAnswer: "Himalayas"
+    }
+];
 
 fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple')
     .then(res => {
