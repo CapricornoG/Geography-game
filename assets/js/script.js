@@ -1,67 +1,57 @@
-const questions = [
-    {
-        question: "What is the capital of France?",
-        options: ["London", "Berlin", "Paris", "Rome"],
-        answer: "Paris"
-    },
-    {
-        question: "What is the largest country by land area?",
-        options: ["United States", "Canada", "Russia", "China"],
-        answer: "Russia"
-    },
-    {
-        question: "Which ocean is the largest?",
-        options: ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
-        answer: "Pacific Ocean"
-    },
-    {
-        question: "Which country is known as the 'Land of the Rising Sun'?",
-        options: ["China", "Japan", "South Korea", "Thailand"],
-        answer: "Japan"
-    },
-    {
-        question: "What is the longest river in the world?",
-        options: ["Nile", "Amazon", "Yangtze", "Mississippi"],
-        answer: "Nile"
-    },
-    {
-        question: "Which continent is the least populated?",
-        options: ["Africa", "Europe", "Australia", "Antarctica"],
-        answer: "Antarctica"
-    },
-    {
-        question: "What is the currency of Japan?",
-        options: ["Yuan", "Euro", "Yen", "Dollar"],
-        answer: "Yen"
-    },
-    {
-        question: "What is the official language of Brazil?",
-        options: ["Portuguese", "Spanish", "English", "French"],
-        answer: "Portuguese"
-    },
-    {
-        question: "Which desert is the largest in the world?",
-        options: ["Sahara Desert", "Arabian Desert", "Gobi Desert", "Antarctic Desert"],
-        answer: "Sahara Desert"
-    },
-    {
-        question: "Which mountain range is the highest in the world?",
-        options: ["Rocky Mountains", "Andes", "Himalayas", "Alps"],
-        answer: "Himalayas"
-    }
-];
+let questions = [];
 let currentQuestionIndex = 0;
 let score = 0;
-let displayedQuestions = [];
+let timer;
+let timeLeft;
+
 const questionElement = document.getElementById('question');
 const optionsElement = document.getElementById('options');
 const timerDisplay = document.getElementById('timer');
 const scoreDisplay = document.getElementById('your-score');
 const questionNumberElement = document.getElementById('question-number');
+const loader = document.getElementById('loader');
+const game = document.getElementById('game_page');
 
-const timerInterval = 1000;
-let timer;
-let timeLeft;
+
+
+
+fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple')
+    .then(res => {
+        if (!res.ok) {
+            throw new Error("Failed to fetch questions from the API");
+        }
+        return res.json();
+    })
+    .then(data => stripMe(data.results))
+    .then(newData => {
+        
+        questions = newData;
+        game.classList.remove('hidden');
+        loader.classList.add('hidden');
+        displayQuestion();
+    })
+    .catch(error => {
+        console.error(error);
+       
+        questions = backupQuestions;
+        game.classList.remove('hidden');
+        loader.classList.add('hidden');
+        displayQuestion();
+    });
+
+function stripMe(questions) {
+    if (!questions) return [];
+    return questions.map(item => {
+        return {
+            "question": item.question,
+            "answers": shuffle([
+                ...item.incorrect_answers,
+                item.correct_answer
+            ]),
+            correctAnswer: item.correct_answer
+        }
+    });
+}
 
 function displayQuestion() {
     clearInterval(timer);
@@ -75,58 +65,46 @@ function displayQuestion() {
             clearInterval(timer);
             checkAnswer('timeout');
         }
-    }, timerInterval);
+    }, 1000);
 
-    function updateTimerDisplay() {
-        timerDisplay.textContent = `Time Left: ${timeLeft} seconds`;
+    const currentQuestion = questions[currentQuestionIndex];
+
+    if (!currentQuestion) {
+       
+        currentQuestionIndex++;
+        displayQuestion();
+        return;
     }
 
-    const totalQuestions = questions.length;
-    const questionNumber = Math.min(displayedQuestions.length + 1, totalQuestions);
-    questionNumberElement.innerHTML = `Question <span style="color: #FF5733;">${questionNumber}</span> of ${totalQuestions}`;
-
-    if (displayedQuestions.length === totalQuestions) {
-        localStorage.setItem("mostRecentScore", score);
-        return window.location.assign("./end_game.html");
-    }
-
-    let remainingQuestions = questions.filter(question => !displayedQuestions.includes(question));
-    const randomIndex = Math.floor(Math.random() * remainingQuestions.length);
-    const currentQuestion = remainingQuestions[randomIndex];
-    displayedQuestions.push(currentQuestion);
     questionElement.innerHTML = `<h2 class="question">${currentQuestion.question}</h2>`;
 
     optionsElement.innerHTML = '';
-    currentQuestion.options.forEach(option => {
+    currentQuestion.answers.forEach(option => {
         const button = document.createElement('button');
         button.innerText = option;
         button.classList.add('option');
         button.addEventListener('click', () => checkAnswer(option, currentQuestion));
         optionsElement.appendChild(button);
     });
-}
 
+    const totalQuestions = questions.length;
+    const questionNumber = Math.min(currentQuestionIndex + 1, totalQuestions);
+    questionNumberElement.innerHTML = `Question <span style="color: #FF5733;">${questionNumber}</span> of ${totalQuestions}`;
+}
 function checkAnswer(selectedOption, currentQuestion) {
     clearInterval(timer);
-    if (!currentQuestion) {
-        console.log("Timer ran out!");
-        displayQuestion();
-        return;
-    }
 
     const cleanedSelectedOption = selectedOption.trim().toLowerCase();
-    const cleanedCorrectAnswer = currentQuestion.answer.trim().toLowerCase();
-    const classToApply = cleanedSelectedOption === cleanedCorrectAnswer ? 'correct' : 'incorrect';
-    
+    const cleanedCorrectAnswer = currentQuestion ? currentQuestion.correctAnswer.trim().toLowerCase() : null;
+    const classToApply = currentQuestion && cleanedSelectedOption === cleanedCorrectAnswer ? 'correct' : 'incorrect';
+
     if (classToApply === 'correct') {
         score++;
         updateScoreDisplay();
     }
-    
+
     const optionButtons = Array.from(document.querySelectorAll('.option'));
     const selectedButton = optionButtons.find(button => button.innerText.trim().toLowerCase() === cleanedSelectedOption);
-
-    const correctButton = optionButtons.find(button => button.innerText.trim().toLowerCase() === cleanedCorrectAnswer);
 
     if (selectedButton) {
         selectedButton.classList.add(classToApply);
@@ -141,7 +119,13 @@ function checkAnswer(selectedOption, currentQuestion) {
             button.classList.remove('correct', 'incorrect');
             button.disabled = false;
         });
-        displayQuestion();
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            displayQuestion();
+        } else {
+            localStorage.setItem("mostRecentScore", score);
+            window.location.assign("./end_game.html");
+        }
     }, 1000);
 }
 
@@ -149,4 +133,17 @@ function updateScoreDisplay() {
     scoreDisplay.textContent = score;
 }
 
-displayQuestion();
+function updateTimerDisplay() {
+    timerDisplay.textContent = `Time Left: ${timeLeft} seconds`;
+}
+
+const shuffle = (array) => {
+    let oldElement;
+    for (let i = array.length - 1; i > 0; i--) {
+        let rand = Math.floor(Math.random() * (i + 1));
+        oldElement = array[i];
+        array[i] = array[rand];
+        array[rand] = oldElement;
+    }
+    return array;
+}
