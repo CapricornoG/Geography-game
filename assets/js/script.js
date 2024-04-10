@@ -58,15 +58,17 @@ const questionElement = document.getElementById('question');
 const optionsElement = document.getElementById('options');
 const optionButtons = [];
 const timerDisplay = document.getElementById('timer');
-const timerInterval = 1000;
+const scoreDisplay = document.getElementById('your-score');
+const questionNumberElement = document.getElementById('question-number');
+
+let timerInterval = 1000;
 let timer;
 let timeLeft;
-const scoreDisplay = document.getElementById('your-score');
 
 function displayQuestion() {
-    timeLeft = 10;
-    updateTimerDisplay();
     clearInterval(timer);
+    timeLeft = 30;
+    updateTimerDisplay();
 
     timer = setInterval(() => {
         timeLeft--;
@@ -77,6 +79,14 @@ function displayQuestion() {
             checkAnswer('timeout');
         }
     }, timerInterval);
+
+    function updateTimerDisplay() {
+        timerDisplay.textContent = `Time Left: ${timeLeft} seconds`;
+    }
+
+    const questionNumber = displayedQuestions.length + 1;
+    const totalQuestions = questions.length;
+    questionNumberElement.innerHTML = `Question <span style="color: #FF5733;">${questionNumber}</span> of ${totalQuestions}`;
 
     if (displayedQuestions.length === questions.length) {
         endGame();
@@ -103,14 +113,12 @@ function displayQuestion() {
     displayQuestion.optionButtons = optionButtons;
 }
 
-function updateTimerDisplay() {
-    timerDisplay.textContent = `Time Left: ${timeLeft} seconds`;
-}
 function checkAnswer(selectedOption, currentQuestion) {
     clearInterval(timer);
 
     if (!currentQuestion) {
         console.log("Timer ran out!");
+        displayQuestion();
         return;
     }
 
@@ -143,6 +151,7 @@ function checkAnswer(selectedOption, currentQuestion) {
         displayQuestion();
     }, 1000);
 }
+
 
 function updateScoreDisplay() {
     scoreDisplay.textContent = score;
