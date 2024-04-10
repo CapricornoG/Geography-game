@@ -14,7 +14,6 @@ const questions = [
         options: ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
         answer: "Pacific Ocean"
     },
-    
     {
         question: "Which country is known as the 'Land of the Rising Sun'?",
         options: ["China", "Japan", "South Korea", "Thailand"],
@@ -54,13 +53,33 @@ const questions = [
 
 let currentQuestionIndex = 0;
 let score = 0;
-let displayedQuestions = []; 
+let displayedQuestions = [];
 const questionElement = document.getElementById('question');
 const optionsElement = document.getElementById('options');
-const optionButtons = []; 
+const optionButtons = [];
+const timerDisplay = document.getElementById('timer');
+const timerInterval = 1000;
+let timer;
+let timeLeft;
+const scoreDisplay = document.getElementById('your-score');
+
 function displayQuestion() {
+    timeLeft = 10;
+    updateTimerDisplay();
+    clearInterval(timer);
+
+    timer = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+
+        if (timeLeft === 0) {
+            clearInterval(timer);
+            checkAnswer('timeout');
+        }
+    }, timerInterval);
+
     if (displayedQuestions.length === questions.length) {
-        endGame(); 
+        endGame();
         return;
     }
 
@@ -78,55 +97,55 @@ function displayQuestion() {
         button.classList.add('option');
         button.addEventListener('click', () => checkAnswer(option, currentQuestion));
         optionsElement.appendChild(button);
-        optionButtons.push(button); 
+        optionButtons.push(button);
     });
 
-    
     displayQuestion.optionButtons = optionButtons;
 }
 
-
-const scoreDisplay = document.getElementById('your-score'); 
-
+function updateTimerDisplay() {
+    timerDisplay.textContent = `Time Left: ${timeLeft} seconds`;
+}
 function checkAnswer(selectedOption, currentQuestion) {
+    clearInterval(timer);
+
+    if (!currentQuestion) {
+        console.log("Timer ran out!");
+        return;
+    }
+
     const cleanedSelectedOption = selectedOption.trim().toLowerCase();
     const cleanedCorrectAnswer = currentQuestion.answer.trim().toLowerCase();
     const classToApply = cleanedSelectedOption === cleanedCorrectAnswer ? 'correct' : 'incorrect';
     
     if (classToApply === 'correct') {
-        score++; 
-        updateScoreDisplay(); 
+        score++;
+        updateScoreDisplay();
     }
     
     const optionButtons = Array.from(document.querySelectorAll('.option'));
     const selectedButton = optionButtons.find(button => button.innerText.trim().toLowerCase() === cleanedSelectedOption);
-
-    
     const correctButton = optionButtons.find(button => button.innerText.trim().toLowerCase() === cleanedCorrectAnswer);
 
     if (selectedButton) {
-        selectedButton.classList.add(classToApply); 
+        selectedButton.classList.add(classToApply);
     }
 
-   
     optionButtons.forEach(button => {
         button.disabled = true;
     });
 
-   
     setTimeout(() => {
         optionButtons.forEach(button => {
-            button.classList.remove('correct', 'incorrect'); 
-            button.disabled = false; 
+            button.classList.remove('correct', 'incorrect');
+            button.disabled = false;
         });
-        displayQuestion(); 
-    }, 1000); 
+        displayQuestion();
+    }, 1000);
 }
-
 
 function updateScoreDisplay() {
-    scoreDisplay.textContent = score; 
+    scoreDisplay.textContent = score;
 }
-
 
 displayQuestion();
