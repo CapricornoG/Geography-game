@@ -84,11 +84,19 @@ function displayQuestion() {
     
     displayQuestion.optionButtons = optionButtons;
 }
+
+
+const scoreDisplay = document.getElementById('your-score'); 
+
 function checkAnswer(selectedOption, currentQuestion) {
     const cleanedSelectedOption = selectedOption.trim().toLowerCase();
     const cleanedCorrectAnswer = currentQuestion.answer.trim().toLowerCase();
     const classToApply = cleanedSelectedOption === cleanedCorrectAnswer ? 'correct' : 'incorrect';
     
+    if (classToApply === 'correct') {
+        score++; 
+        updateScoreDisplay(); 
+    }
     
     const optionButtons = Array.from(document.querySelectorAll('.option'));
     const selectedButton = optionButtons.find(button => button.innerText.trim().toLowerCase() === cleanedSelectedOption);
@@ -113,6 +121,11 @@ function checkAnswer(selectedOption, currentQuestion) {
         });
         displayQuestion(); 
     }, 1000); 
+}
+
+
+function updateScoreDisplay() {
+    scoreDisplay.textContent = score; 
 }
 
 
