@@ -18,8 +18,6 @@
     color: var(--color_txt);
 }
 
-/* Base Styles */
-
 /* Container Styles */
 
 .container {
@@ -37,8 +35,6 @@
 .container > * {
     width: 100%;
 }
-
-/* Flex Styles */
 
 .flex-column {
     display: flex;
@@ -69,11 +65,18 @@ h2 {
     text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-/* to add  */
+
+.welcome{
+    text-align: center;
+    padding-bottom:2rem ;
+    font-weight: 700;
+}
+
 p, ol, li {
     font-size: 1.8rem;
-    color: #555;
+    color: var(--color_txt);
     margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 .container ol {
@@ -95,8 +98,7 @@ h3{
     color: var(--color_hover);
     margin-bottom: 2rem;
     text-align: center;
-}/* to do up to here */
-/* done from here */
+}
 /* Button Styles */
 
 .buttons {
@@ -116,6 +118,7 @@ h3{
     text-align: center;
     text-decoration: none;
     transition: background-color 150ms;
+    font-weight: 700;
 }
 
 .btn:hover {
@@ -124,8 +127,6 @@ h3{
     transform: translateY(-0.1rem);
     border-color: transparent;
 }
-/* done up to here */
-/* to do from here */
 .options {
     display: flex;
     flex-direction: column;
@@ -142,6 +143,7 @@ h3{
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
+    font-weight: 700;
 }
 
 .option:hover {
@@ -226,6 +228,22 @@ h3{
     font-weight: 900;
 }
 
+
+.hidden {
+    display: none;
+  }
+
+  #loader {
+    border: 1.6rem solid var(--color_wht);
+    border-radius: 50%;
+    border-top: 1.6rem solid var(--color_main);
+    width: 12rem;
+    height: 12rem;
+    animation: spin 2s linear infinite;
+  }  
+
+/* end page */
+
 #score-display-end {
     display: flex;
     flex-direction: column;
@@ -271,29 +289,6 @@ margin-bottom: 2rem;
     margin-top: 2rem;
     text-align: center;
 }
-
-
-.hidden {
-    display: none;
-  }
-
-  #loader {
-    border: 1.6rem solid var(--color_wht);
-    border-radius: 50%;
-    border-top: 1.6rem solid var(--color_main);
-    width: 12rem;
-    height: 12rem;
-    animation: spin 2s linear infinite;
-  }  
-
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 
 /* Media Queries */
 
@@ -456,13 +451,20 @@ li {
 }
 
 /* Add animation keyframes */
-        
+
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
         
 @keyframes rotate {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
 
 .rotate {
 animation: rotate 4s linear infinite;
