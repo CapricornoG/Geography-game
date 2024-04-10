@@ -146,7 +146,7 @@ function checkAnswer(selectedOption, currentQuestion) {
 
     const cleanedSelectedOption = selectedOption.trim().toLowerCase();
     const cleanedCorrectAnswer = currentQuestion ? currentQuestion.correctAnswer.trim().toLowerCase() : null;
-    const classToApply = currentQuestion && cleanedSelectedOption === cleanedCorrectAnswer ? 'correct' : 'incorrect';
+    const classToApply = cleanedSelectedOption === cleanedCorrectAnswer ? 'correct' : 'incorrect';
 
     if (classToApply === 'correct') {
         score++;
@@ -158,6 +158,11 @@ function checkAnswer(selectedOption, currentQuestion) {
 
     if (selectedButton) {
         selectedButton.classList.add(classToApply);
+    }
+
+    const correctButton = optionButtons.find(button => button.innerText.trim().toLowerCase() === cleanedCorrectAnswer);
+    if (correctButton) {
+        correctButton.classList.add('correct');
     }
 
     optionButtons.forEach(button => {
@@ -178,6 +183,8 @@ function checkAnswer(selectedOption, currentQuestion) {
         }
     }, 1000);
 }
+
+
 
 function updateScoreDisplay() {
     scoreDisplay.textContent = score;
