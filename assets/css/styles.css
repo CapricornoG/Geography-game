@@ -216,3 +216,87 @@ h3{
 }
 
 
+@media screen and (max-width: 48rem) {
+
+    .logo {
+        font-size: 6rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+    
+    .btn {
+        margin: 1rem;
+        padding: 1rem 1.5rem;
+        font-size: 1.4rem;
+    }
+    
+    #game {
+        display: block;
+    }
+    
+    #game_page .container {
+        padding: 1rem;
+    }
+    
+    #game-items {
+        padding-top: 1rem;
+        text-align: center;
+    }
+    
+    #buttons-game {
+        padding-top: 2rem;
+        text-align: center;
+    }
+    
+    #question h2 {
+        font-size: 1.8rem;
+    }
+    
+    .option {
+        font-size: 1.4rem;
+        padding: 0.6rem 1.2rem;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    p,
+    ol,
+    li {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .container ol {
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+        text-align: center;
+    }
+    
+    .container ol li {
+        margin-bottom: 0.5rem;
+        text-align: left;
+    }
+    
+    .timer {
+        font-size: 1.5rem;
+    }
+    
+    #question-number {
+        font-size: 1.5rem;
+    }
+    
+    }
+    
+
+
