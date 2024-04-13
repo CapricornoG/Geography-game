@@ -10,7 +10,7 @@ const timerDisplay = document.getElementById('timer');
 const scoreDisplay = document.getElementById('your-score');
 const questionNumberElement = document.getElementById('question-number');
 const loader = document.getElementById('loader');
-const game = document.getElementById('game_page');
+const game = document.getElementById('game-page');
 
 
 const backupQuestions = [
@@ -95,10 +95,10 @@ function stripMe(questions) {
         return {
             "question": item.question,
             "answers": shuffle([
-                ...item.incorrect_answers,
-                item.correct_answer
+                ...item.incorrect-answers,
+                item.correct-answer
             ]),
-            correctAnswer: item.correct_answer
+            correctAnswer: item.correct-answer
         }
     });
 }
@@ -179,7 +179,7 @@ function checkAnswer(selectedOption, currentQuestion) {
             displayQuestion();
         } else {
             localStorage.setItem("mostRecentScore", score);
-            window.location.assign("./end_game.html");
+            window.location.assign("./end-game.html");
         }
     }, 1000);
 }
