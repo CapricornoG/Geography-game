@@ -12,59 +12,8 @@ const questionNumberElement = document.getElementById('question-number');
 const loader = document.getElementById('loader');
 const game = document.getElementById('game-page');
 
-
 const backupQuestions = [
-    {
-        question: "What is the capital of Italy?",
-        answers: ["London", "Berlin", "Paris", "Rome"],
-        correctAnswer: "Rome"
-    },
-    {
-        question: "What is the currency of Japan?",
-        answers: ["Yuan", "Euro", "Yen", "Dollar"],
-        correctAnswer: "Yen"
-    }, {
-        question: "What is the capital of Italy?",
-        answers: ["London", "Berlin", "Paris", "Rome"],
-        correctAnswer: "Rome"
-    },
-    {
-        question: "What is the currency of Japan?",
-        answers: ["Yuan", "Euro", "Yen", "Dollar"],
-        correctAnswer: "Yen"
-    },
-    {
-        question: "Which country is known as the 'Land of the Rising Sun'?",
-        answers: ["China", "Japan", "South Korea", "Thailand"],
-        correctAnswer: "Japan"
-    },
-    {
-        question: "What is the longest river in the world?",
-        answers: ["Nile", "Amazon", "Yangtze", "Mississippi"],
-        correctAnswer: "Nile"
-    },
-    {
-        question: "Which continent is the least populated?",
-        answers: ["Africa", "Europe", "Australia", "Antarctica"],
-        correctAnswer: "Antarctica"
-    },
-    {
-        question: "What is the official language of Brazil?",
-        answers: ["Portuguese", "Spanish", "English", "French"],
-        correctAnswer: "Portuguese"
-    },
-    {
-        question: "Which desert is the largest in the world?",
-        answers: ["Sahara Desert", "Arabian Desert", "Gobi Desert", "Antarctic Desert"],
-        correctAnswer: "Sahara Desert"
-    },
-    {
-        question: "Which mountain range is the highest in the world?",
-        answers: ["Rocky Mountains", "Andes", "Himalayas", "Alps"],
-        correctAnswer: "Himalayas"
-    }
 ];
-
 fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple')
     .then(res => {
         if (!res.ok) {
@@ -72,22 +21,36 @@ fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=
         }
         return res.json();
     })
-    .then(data => stripMe(data.results))
-    .then(newData => {
-        
-        questions = newData;
-        game.classList.remove('hidden');
-        loader.classList.add('hidden');
-        displayQuestion();
+    .then(data => {
+        const apiQuestions = stripMe(data.results);
+        questions.push(...apiQuestions); 
+        displayQuestion(); 
+        game.classList.remove('hidden'); 
+        loader.classList.add('hidden'); 
     })
-    .catch(error => {
-        console.error(error);
-       
-        questions = backupQuestions;
-        game.classList.remove('hidden');
-        loader.classList.add('hidden');
-        displayQuestion();
+    .catch(apiError => {
+        console.error(apiError);
+        fetch('http://localhost:5500/./assets/data/backup-question.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to fetch backup questions');
+        }
+        return response.json();
+    })
+    .then(backupData => {
+        questions.push(...backupData); 
+        displayQuestion(); 
+        game.classList.remove('hidden'); 
+        loader.classList.add('hidden'); 
+    })
+    .catch(backupError => {
+        console.error(backupError);
+        
     });
+
+    });
+
+
 
 function stripMe(questions) {
     if (!questions) return [];
@@ -95,10 +58,10 @@ function stripMe(questions) {
         return {
             "question": item.question,
             "answers": shuffle([
-                ...item.incorrect-answers,
-                item.correct-answer
+                ...item.incorrect_answers,
+                item.correct_answer
             ]),
-            correctAnswer: item.correct-answer
+            correctAnswer: item.correct_answer
         }
     });
 }
@@ -120,7 +83,6 @@ function displayQuestion() {
     const currentQuestion = questions[currentQuestionIndex];
 
     if (!currentQuestion) {
-       
         currentQuestionIndex++;
         displayQuestion();
         return;
@@ -146,7 +108,7 @@ function checkAnswer(selectedOption, currentQuestion) {
 
     const cleanedSelectedOption = selectedOption.trim().toLowerCase();
     const cleanedCorrectAnswer = currentQuestion ? currentQuestion.correctAnswer.trim().toLowerCase() : null;
-    const classToApply = cleanedSelectedOption === cleanedCorrectAnswer ? 'correct' : 'incorrect';
+    const classToApply = currentQuestion && cleanedSelectedOption === cleanedCorrectAnswer ? 'correct' : 'incorrect';
 
     if (classToApply === 'correct') {
         score++;
@@ -158,11 +120,6 @@ function checkAnswer(selectedOption, currentQuestion) {
 
     if (selectedButton) {
         selectedButton.classList.add(classToApply);
-    }
-
-    const correctButton = optionButtons.find(button => button.innerText.trim().toLowerCase() === cleanedCorrectAnswer);
-    if (correctButton) {
-        correctButton.classList.add('correct');
     }
 
     optionButtons.forEach(button => {
@@ -183,8 +140,6 @@ function checkAnswer(selectedOption, currentQuestion) {
         }
     }, 1000);
 }
-
-
 
 function updateScoreDisplay() {
     scoreDisplay.textContent = score;
