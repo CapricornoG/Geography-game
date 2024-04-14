@@ -4,17 +4,17 @@ let score = 0;
 let timer;
 let timeLeft;
 
-const questionElement = document.querySelector('#question');
-const optionsElement = document.querySelector('#options');
+const questionContainer = document.querySelector('#question');
+const optionsContainer = document.querySelector('#options');
 const timerDisplay = document.querySelector('#timer');
 const scoreDisplay = document.querySelector('#your-score');
-const questionNumberElement = document.querySelector('#question-number');
+const questionNumberDisplay = document.querySelector('#question-number');
 const loader = document.querySelector('#loader');
-const game = document.querySelector('#game-page');
+const gamePage = document.querySelector('#game-page');
 
 const backupQuestions = [];
 
-const goGetMeSomething = (url) => {
+const fetchQuestions = (url) => {
     fetch(url)
         .then(res => {
             if (!res.ok) {
@@ -23,8 +23,8 @@ const goGetMeSomething = (url) => {
             return res.json();
         })
         .then(data => {
-            questions = stripMe(data.results);
-            game.classList.remove('hidden');
+            questions = stripQuestions(data.results);
+            gamePage.classList.remove('hidden');
             loader.classList.add('hidden');
             displayQuestion();
         })
@@ -39,21 +39,19 @@ const goGetMeSomething = (url) => {
                 })
                 .then(backupData => {
                     questions = backupData;
-                    game.classList.remove('hidden');
+                    gamePage.classList.remove('hidden');
                     loader.classList.add('hidden');
                     displayQuestion();
                 })
                 .catch(backupError => {
                     console.error("Error fetching backup questions:", backupError);
-                    // Handle the error gracefully, possibly display a message to the user
                 });
         });
-        
 };
 
-goGetMeSomething('https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple');
+fetchQuestions('https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple');
 
-function stripMe(questions) {
+function stripQuestions(questions) {
     if (!questions) return [];
     return questions.map(item => {
         return {
@@ -84,24 +82,22 @@ function displayQuestion() {
     const currentQuestion = questions[currentQuestionIndex];
 
     if (!currentQuestion) {
-        // No more questions to display, exit the function
         return;
     }
 
-    // Display the current question
-    questionElement.innerHTML = `<h2 class="question">${currentQuestion.question}</h2>`;
-    optionsElement.innerHTML = '';
+    questionContainer.innerHTML = `<h2 class="question">${currentQuestion.question}</h2>`;
+    optionsContainer.innerHTML = '';
     currentQuestion.answers.forEach(option => {
         const button = document.createElement('button');
         button.innerText = option;
         button.classList.add('option');
         button.addEventListener('click', () => checkAnswer(option, currentQuestion));
-        optionsElement.appendChild(button);
+        optionsContainer.appendChild(button);
     });
 
     const totalQuestions = questions.length;
     const questionNumber = Math.min(currentQuestionIndex + 1, totalQuestions);
-    questionNumberElement.innerHTML = `Question <span style="color: #FF5733;">${questionNumber}</span> of ${totalQuestions}`;
+    questionNumberDisplay.innerHTML = `Question <span style="color: #FF5733;">${questionNumber}</span> of ${totalQuestions}`;
 }
 
 function checkAnswer(selectedOption, currentQuestion) {
