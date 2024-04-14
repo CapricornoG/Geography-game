@@ -1,20 +1,19 @@
+const game = document.getElementById('game-page');
+const loader = document.getElementById('loader');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+const timerDisplay = document.getElementById('timer');
+const scoreDisplay = document.getElementById('your-score');
+const questionNumberElement = document.getElementById('question-number');
+const backupQuestions = [];
+
 let questions = [];
 let currentQuestionIndex = 0;
 let score = 0;
 let timer;
 let timeLeft;
 
-const questionContainer = document.querySelector('#question');
-const optionsContainer = document.querySelector('#options');
-const timerDisplay = document.querySelector('#timer');
-const scoreDisplay = document.querySelector('#your-score');
-const questionNumberDisplay = document.querySelector('#question-number');
-const loader = document.querySelector('#loader');
-const gamePage = document.querySelector('#game-page');
-
-const backupQuestions = [];
-
-const fetchQuestions = (url) => {
+const goGetMeSomething = (url) => {
     fetch(url)
         .then(res => {
             if (!res.ok) {
@@ -23,8 +22,8 @@ const fetchQuestions = (url) => {
             return res.json();
         })
         .then(data => {
-            questions = stripQuestions(data.results);
-            gamePage.classList.remove('hidden');
+            questions = stripMe(data.results);
+            game.classList.remove('hidden');
             loader.classList.add('hidden');
             displayQuestion();
         })
@@ -39,7 +38,7 @@ const fetchQuestions = (url) => {
                 })
                 .then(backupData => {
                     questions = backupData;
-                    gamePage.classList.remove('hidden');
+                    game.classList.remove('hidden');
                     loader.classList.add('hidden');
                     displayQuestion();
                 })
@@ -49,9 +48,7 @@ const fetchQuestions = (url) => {
         });
 };
 
-fetchQuestions('https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple');
-
-function stripQuestions(questions) {
+const stripMe = (questions) => {
     if (!questions) return [];
     return questions.map(item => {
         return {
@@ -63,9 +60,20 @@ function stripQuestions(questions) {
             correctAnswer: item.correct_answer
         };
     });
-}
+};
 
-function displayQuestion() {
+const shuffle = (array) => {
+    let oldElement;
+    for (let i = array.length - 1; i > 0; i--) {
+        let rand = Math.floor(Math.random() * (i + 1));
+        oldElement = array[i];
+        array[i] = array[rand];
+        array[rand] = oldElement;
+    }
+    return array;
+};
+
+const displayQuestion = () => {
     clearInterval(timer);
     timeLeft = 30;
     updateTimerDisplay();
@@ -85,22 +93,22 @@ function displayQuestion() {
         return;
     }
 
-    questionContainer.innerHTML = `<h2 class="question">${currentQuestion.question}</h2>`;
-    optionsContainer.innerHTML = '';
+    questionElement.innerHTML = `<h2 class="question">${currentQuestion.question}</h2>`;
+    optionsElement.innerHTML = '';
     currentQuestion.answers.forEach(option => {
         const button = document.createElement('button');
         button.innerText = option;
         button.classList.add('option');
         button.addEventListener('click', () => checkAnswer(option, currentQuestion));
-        optionsContainer.appendChild(button);
+        optionsElement.appendChild(button);
     });
 
     const totalQuestions = questions.length;
     const questionNumber = Math.min(currentQuestionIndex + 1, totalQuestions);
-    questionNumberDisplay.innerHTML = `Question <span style="color: #FF5733;">${questionNumber}</span> of ${totalQuestions}`;
-}
+    questionNumberElement.innerHTML = `Question <span style="color: #FF5733;">${questionNumber}</span> of ${totalQuestions}`;
+};
 
-function checkAnswer(selectedOption, currentQuestion) {
+const checkAnswer = (selectedOption, currentQuestion) => {
     clearInterval(timer);
 
     const cleanedSelectedOption = selectedOption.trim().toLowerCase();
@@ -136,23 +144,14 @@ function checkAnswer(selectedOption, currentQuestion) {
             window.location.assign("./end-game.html");
         }
     }, 1000);
-}
-
-function updateScoreDisplay() {
-    scoreDisplay.textContent = score;
-}
-
-function updateTimerDisplay() {
-    timerDisplay.textContent = `Time Left: ${timeLeft} seconds`;
-}
-
-const shuffle = (array) => {
-    let oldElement;
-    for (let i = array.length - 1; i > 0; i--) {
-        let rand = Math.floor(Math.random() * (i + 1));
-        oldElement = array[i];
-        array[i] = array[rand];
-        array[rand] = oldElement;
-    }
-    return array;
 };
+
+const updateScoreDisplay = () => {
+    scoreDisplay.textContent = score;
+};
+
+const updateTimerDisplay = () => {
+    timerDisplay.textContent = `Time Left: ${timeLeft} seconds`;
+};
+
+goGetMeSomething('https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple');
