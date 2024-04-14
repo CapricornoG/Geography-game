@@ -4,13 +4,13 @@ let score = 0;
 let timer;
 let timeLeft;
 
-const questionElement = document.getElementById('question');
-const optionsElement = document.getElementById('options');
-const timerDisplay = document.getElementById('timer');
-const scoreDisplay = document.getElementById('your-score');
-const questionNumberElement = document.getElementById('question-number');
-const loader = document.getElementById('loader');
-const game = document.getElementById('game-page');
+const questionElement = document.querySelector('#question');
+const optionsElement = document.querySelector('#options');
+const timerDisplay = document.querySelector('#timer');
+const scoreDisplay = document.querySelector('#your-score');
+const questionNumberElement = document.querySelector('#question-number');
+const loader = document.querySelector('#loader');
+const game = document.querySelector('#game-page');
 
 const backupQuestions = [];
 
