@@ -12,45 +12,46 @@ const questionNumberElement = document.getElementById('question-number');
 const loader = document.getElementById('loader');
 const game = document.getElementById('game-page');
 
-const backupQuestions = [
-];
-fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple')
-    .then(res => {
-        if (!res.ok) {
-            throw new Error("Failed to fetch questions from the API");
-        }
-        return res.json();
-    })
-    .then(data => {
-        const apiQuestions = stripMe(data.results);
-        questions.push(...apiQuestions); 
-        displayQuestion(); 
-        game.classList.remove('hidden'); 
-        loader.classList.add('hidden'); 
-    })
-    .catch(apiError => {
-        console.error(apiError);
-        fetch('http://localhost:5500/./assets/data/backup-question.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to fetch backup questions');
-        }
-        return response.json();
-    })
-    .then(backupData => {
-        questions.push(...backupData); 
-        displayQuestion(); 
-        game.classList.remove('hidden'); 
-        loader.classList.add('hidden'); 
-    })
-    .catch(backupError => {
-        console.error(backupError);
+const backupQuestions = [];
+
+const goGetMeSomething = (url) => {
+    fetch(url)
+        .then(res => {
+            if (!res.ok) {
+                throw new Error("Failed to fetch questions from the API");
+            }
+            return res.json();
+        })
+        .then(data => {
+            questions = stripMe(data.results);
+            game.classList.remove('hidden');
+            loader.classList.add('hidden');
+            displayQuestion();
+        })
+        .catch(error => {
+            console.error("Error fetching questions:", error);
+            fetch('http://localhost:5500/assets/data/backup-question.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch backup questions');
+                    }
+                    return response.json();
+                })
+                .then(backupData => {
+                    questions = backupData;
+                    game.classList.remove('hidden');
+                    loader.classList.add('hidden');
+                    displayQuestion();
+                })
+                .catch(backupError => {
+                    console.error("Error fetching backup questions:", backupError);
+                    // Handle the error gracefully, possibly display a message to the user
+                });
+        });
         
-    });
+};
 
-    });
-
-
+goGetMeSomething('https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple');
 
 function stripMe(questions) {
     if (!questions) return [];
@@ -62,7 +63,7 @@ function stripMe(questions) {
                 item.correct_answer
             ]),
             correctAnswer: item.correct_answer
-        }
+        };
     });
 }
 
@@ -83,13 +84,12 @@ function displayQuestion() {
     const currentQuestion = questions[currentQuestionIndex];
 
     if (!currentQuestion) {
-        currentQuestionIndex++;
-        displayQuestion();
+        // No more questions to display, exit the function
         return;
     }
 
+    // Display the current question
     questionElement.innerHTML = `<h2 class="question">${currentQuestion.question}</h2>`;
-
     optionsElement.innerHTML = '';
     currentQuestion.answers.forEach(option => {
         const button = document.createElement('button');
@@ -103,6 +103,7 @@ function displayQuestion() {
     const questionNumber = Math.min(currentQuestionIndex + 1, totalQuestions);
     questionNumberElement.innerHTML = `Question <span style="color: #FF5733;">${questionNumber}</span> of ${totalQuestions}`;
 }
+
 function checkAnswer(selectedOption, currentQuestion) {
     clearInterval(timer);
 
@@ -158,4 +159,4 @@ const shuffle = (array) => {
         array[rand] = oldElement;
     }
     return array;
-}
+};
