@@ -31,6 +31,13 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
     - [Fonts](#fonts)
     - [Structure](#structure)
   - [Logic](#logic)
+  - [Features](#features)
+    - [Homepage Features:](#homepage-features)
+    - [Game Page Features:](#game-page-features)
+    - [Rules Page Features:](#rules-page-features)
+    - [End Game Page Features:](#end-game-page-features)
+    - [Styling and Design Features:](#styling-and-design-features)
+    - [JavaScript Functionality Features:](#javascript-functionality-features)
 
 
 ## UX Design
@@ -160,20 +167,34 @@ Font-family used  'Montserrat', sans-serif.
 1.	Homepage (index.html):
 -	Displays a welcome message and the logo of the game.
 -	Provides buttons to navigate to the game page or the rules page.
+
+![homePage](./assets/images/home.png)
 2.	Game Page (start-game.html):
 -	Displays the game interface where questions are shown.
 -	Each question has multiple choice options for answers.
+![Questrions](./assets/images/question-show.png)
 -	Users have a set time limit to answer each question.
+![timer](./assets/images/timer.png)
 -	After answering, the user is shown if the answer was correct or incorrect.
+![correct](./assets/images/correct.png)
+![incorrect](./assets/images/incorrect.png)
+
 -	Score is updated based on correct answers.
+![score](./assets/images/score.png)
 -	Once all questions are answered, the user is redirected to the end game page.
+![endPage](./assets/images/endPage.png)
+
 3.	Rules Page (rules.html):
 -	Presents the rules of the game to the user.
 -	Provides guidance on how to play, including time limits and scoring.
+![rulesPage](./assets/images/rulesPage.png)
+
 4.	End Game Page (end-game.html):
 -	Displays the final score achieved by the user.
 -	Provides a personalized message based on the score achieved.
 -	Allows users to restart the game or return to the homepage.
+![endPage](./assets/images/endPage.png)
+
 5.	CSS Styling:
 -	Ensures a consistent and visually appealing layout across all pages.
 -	Utilizes CSS animations for interactive elements such as buttons and logo rotation.
@@ -183,6 +204,38 @@ Font-family used  'Montserrat', sans-serif.
 -	Handles the display of questions and options dynamically.
 -	Implements a timer for each question and updates the UI accordingly.
 -	Checks user-selected answers against correct answers and updates the score.
+-	Manages navigation between pages and stores/retrieves the user's final score.
+
+## Features
+###	Homepage Features:
+-	Welcome message and game logo.
+-	Start Game button to initiate the game.
+-	Rules button to view the game rules.
+###	Game Page Features:
+-	Displays questions one by one with multiple-choice options.
+-	Timer indicating the time remaining to answer each question.
+-	Feedback on selected answers (correct or incorrect).
+-	Score display showing the current score.
+-	Question number indicator to track progress.
+-	Navigation buttons to return to the homepage or view the rules.
+###	Rules Page Features:
+-	Provides clear instructions on how to play the game.
+-	Lists out the rules, including time limits and scoring system.
+-	Encourages users to test their geography knowledge.
+###	End Game Page Features:
+-	Displays the final score achieved by the user.
+-	Presents a personalised message based on the score attained.
+-	Allows users to restart the game or return to the homepage.
+###	Styling and Design Features:
+-	Consistent design elements across all pages for a cohesive user experience.
+-	Responsive design to ensure compatibility with various devices and screen sizes.
+-	Use of CSS animations for interactive elements such as buttons and logo rotation.
+-	Clear typography and colour scheme for readability and visual appeal.
+###	JavaScript Functionality Features:
+-	Fetches questions from an external API (or uses backup questions if API call fails).
+-	Dynamically displays questions and options based on the retrieved data.
+-	Implements a timer for each question to create a sense of urgency.
+-	Validates user-selected answers against correct answers and updates the score accordingly.
 -	Manages navigation between pages and stores/retrieves the user's final score.
 
 
