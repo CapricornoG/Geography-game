@@ -11,6 +11,9 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
 [Deployed site here](<https://capricornog.github.io/Geography-game/>)
 
 ![Am I Responsive Screenshot](./assets/images/image.png)
+![Am I Responsive rules](./assets/images/responsive-rules.png)
+![Am I Responsive game](./assets/images/responsive-game.png)
+![Am I Responsive end](./assets/images/responsive-end.png)
 
 ## Table of content
 - [Geography game](#geography-game)
@@ -119,5 +122,6 @@ Start-game Page
 
 ![Start-game](./assets/images/game.png)
 
+End Page
 
 
