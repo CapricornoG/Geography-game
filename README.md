@@ -18,6 +18,7 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
   - [Table of content](#table-of-content)
   - [UX Design](#ux-design)
     - [User Stories](#user-stories)
+    - [User Goal](#user-goal)
 
 
 ## UX Design
@@ -32,3 +33,9 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
 - As a player, I want the game to be visually appealing and easy to navigate, so I can enjoy the experience.
 - As a player, I want the game to be accessible on different devices and screen sizes, so I can play on my preferred device.
 - As a player, I want to have the option to view the rules of the game, so I can understand how to play before starting.
+
+### User Goal
+- Test Knowledge: Users wish to assess their knowledge of world geography by answering questions on countries, capitals, landmarks, and other geographical facts.
+- Learn: By playing the quiz game, users hope to acquire new facts and knowledge about globe geography.
+- Challenge: Users expect a demanding experience that will test their brains and problem-solving abilities.
+- Improve Geography Skills: Through games, users hope to have a better grasp of global geography.
