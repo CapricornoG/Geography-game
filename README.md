@@ -21,6 +21,7 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
     - [User Goal](#user-goal)
     - [How to meet user requiremnt](#how-to-meet-user-requiremnt)
     - [structure for the website:](#structure-for-the-website)
+    - [Wireframe](#wireframe)
 
 
 ## UX Design
@@ -104,6 +105,19 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
 -	Stylesheet (styles.css) for styling the website.
 -	JS Folder:
 -	JavaScript files (script.js and end.js) for implementing game logic and functionality.
+
+### Wireframe
+Home Page
+
+![home](./assets/images/New%20Wireframe%201.png)
+
+Rules Page
+
+![Rules](./assets/images/rules.png)
+
+Start-game Page
+
+![Start-game](./assets/images/game.png)
 
 
 
