@@ -27,9 +27,10 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
     - [Wireframe](#wireframe)
   - [Design Choice](#design-choice)
     - [Colour Scheme](#colour-scheme)
-  - [Icons](#icons)
-  - [Fonts](#fonts)
-  - [Structure](#structure)
+    - [Icons](#icons)
+    - [Fonts](#fonts)
+    - [Structure](#structure)
+  - [Logic](#logic)
 
 
 ## UX Design
@@ -138,20 +139,52 @@ End Page
 
 ![Colours](./assets/images/Colours.png)
 
-## Icons
+### Icons
 
 [Font Awesome](<https://fontawesome.com/>), only icon is the globe.
 
-## Fonts
+### Fonts
 
 Font-family used  'Montserrat', sans-serif.
 
-## Structure
+### Structure
 
 |Screen Size|Breakpoint|
 |:---:|:---:|
 |x-small|< 480px|
 |small|=> 480px|
 |large|=>768px|
+
+## Logic
+
+1.	Homepage (index.html):
+-	Displays a welcome message and the logo of the game.
+-	Provides buttons to navigate to the game page or the rules page.
+2.	Game Page (start-game.html):
+-	Displays the game interface where questions are shown.
+-	Each question has multiple choice options for answers.
+-	Users have a set time limit to answer each question.
+-	After answering, the user is shown if the answer was correct or incorrect.
+-	Score is updated based on correct answers.
+-	Once all questions are answered, the user is redirected to the end game page.
+3.	Rules Page (rules.html):
+-	Presents the rules of the game to the user.
+-	Provides guidance on how to play, including time limits and scoring.
+4.	End Game Page (end-game.html):
+-	Displays the final score achieved by the user.
+-	Provides a personalized message based on the score achieved.
+-	Allows users to restart the game or return to the homepage.
+5.	CSS Styling:
+-	Ensures a consistent and visually appealing layout across all pages.
+-	Utilizes CSS animations for interactive elements such as buttons and logo rotation.
+-	Implements responsive design to adapt to various screen sizes.
+6.	JavaScript Functionality:
+-	Fetches questions from an external API (or uses backup questions if API call fails).
+-	Handles the display of questions and options dynamically.
+-	Implements a timer for each question and updates the UI accordingly.
+-	Checks user-selected answers against correct answers and updates the score.
+-	Manages navigation between pages and stores/retrieves the user's final score.
+
+
 
 
