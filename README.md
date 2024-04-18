@@ -39,6 +39,13 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
     - [Styling and Design Features:](#styling-and-design-features)
     - [JavaScript Functionality Features:](#javascript-functionality-features)
   - [Future Enhancements](#future-enhancements)
+  - [Technologies-used](#technologies-used)
+  - [Languages](#languages)
+  - [Libraries \& Framework](#libraries--framework)
+  - [Tools](#tools)
+  - [Testing](#testing)
+  - [Deployment](#deployment)
+  - [Credit](#credit)
 
 
 ## UX Design
@@ -263,4 +270,34 @@ While the current version of the Geography Game offers an engaging experience, t
 7.	Sound Effects and Music: Include sound effects for correct and incorrect answers, as well as background music to enhance the overall gaming experience.
 8.	Customization Options: Allow users to customize their game experience by adjusting settings such as timer duration, number of questions, or visual themes.
 
+## Technologies-used
+  
+  ## Languages
+* [HTML](https://en.wikipedia.org/wiki/HTML "HTML")
+* [CSS](https://en.wikipedia.org/wiki/CSS "CSS")
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
+## Libraries & Framework
+* [Google Fonts](https://fonts.google.com/ "Google Fonts")
+* [Font Awesome library](https://fontawesome.com/ "Font Awesome")
+## Tools
+* [Coolors](<https://coolors.co/>)
+* [Balsamiq](https://balsamiq.com/wireframes/ "Balsamiq")
+  
+## Testing
+
+[Testing](testing.md)
+
+
+## Deployment
+
+Following writing the code then commiting and pushing to GitHub, this project was deployed using GitHub by the following steps.
+
+* Navigate to the repository on github and click 'Settings'.
+Then select 'Pages' on the side navigation.
+* Select the 'None' dropdown, and then click 'master'.
+* Click on the 'Save' button.
+* Now the website is now live on <https://capricornog.github.io/Geography-game/>
+* If any changes are required, they can be done, commited and pushed to GitHub and the changes will be updated.
+
+## Credit
