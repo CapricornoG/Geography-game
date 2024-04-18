@@ -19,6 +19,7 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
   - [UX Design](#ux-design)
     - [User Stories](#user-stories)
     - [User Goal](#user-goal)
+    - [How to meet user requiremnt](#how-to-meet-user-requiremnt)
 
 
 ## UX Design
@@ -39,3 +40,37 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
 - Learn: By playing the quiz game, users hope to acquire new facts and knowledge about globe geography.
 - Challenge: Users expect a demanding experience that will test their brains and problem-solving abilities.
 - Improve Geography Skills: Through games, users hope to have a better grasp of global geography.
+
+
+### How to meet user requiremnt
+1.	Start a New Game Easily:
+-	Ensure a prominent "Start Game" button on the homepage for easy access.
+-	Ensure the game loads quickly and smoothly without any technical issues.
+2.	Receive Multiple-Choice Questions:
+-	Design a system to randomly select questions from a pool of geography-related questions.
+-	Display questions in a clear and readable format, with multiple-choice answers presented clearly.
+3.	Timer for Each Question:
+-	Implement a timer for each question to create a sense of urgency and challenge.
+-	Display the remaining time prominently to keep players informed.
+4.	Know If Answer Is Correct/Incorrect:
+-	Provide immediate feedback after each question, indicating whether the answer selected was correct or incorrect.
+-	Highlight the correct answer if the player's response was incorrect to aid learning.
+5.	See Current Score During the Game:
+-	Display the current score prominently on the game page, updating it in real-time as the player progresses.
+-	Ensure that the scoring system accurately reflects the player's performance.
+6.	End Game After Answering All Questions:
+-	Implement logic to end the game automatically after the player has answered all questions in the quiz.
+-	Direct the player to the end-game page to view their final score and personalised message.
+7.	Restart the Game After Finishing:
+-	Provide an option to restart the game on the end-game page, allowing players to play again immediately.
+-	Ensure that restarting the game resets the score and presents a new set of questions.
+8.	Visually Appealing and Easy to Navigate:
+-	Design the website with a clean and intuitive user interface, using visually appealing graphics and layouts.
+-	Ensure consistent navigation elements across all pages for easy access to game features.
+9.	Accessible on Different Devices:
+-	Implement responsive design principles to ensure that the website is accessible and functional across various devices and screen sizes.
+-	Test the website on different browsers and devices to ensure compatibility and optimal performance.
+10.	View the Rules of the Game:
+-	Provide a dedicated "Rules" page where players can learn about the game mechanics, scoring system, and any specific rules or instructions.
+-	Include clear and concise explanations to help users understand how to play the game effectively.
+
