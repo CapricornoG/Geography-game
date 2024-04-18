@@ -38,6 +38,7 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
     - [End Game Page Features:](#end-game-page-features)
     - [Styling and Design Features:](#styling-and-design-features)
     - [JavaScript Functionality Features:](#javascript-functionality-features)
+  - [Future Enhancements](#future-enhancements)
 
 
 ## UX Design
@@ -172,27 +173,38 @@ Font-family used  'Montserrat', sans-serif.
 2.	Game Page (start-game.html):
 -	Displays the game interface where questions are shown.
 -	Each question has multiple choice options for answers.
+
 ![Questrions](./assets/images/question-show.png)
+
 -	Users have a set time limit to answer each question.
+
 ![timer](./assets/images/timer.png)
+
 -	After answering, the user is shown if the answer was correct or incorrect.
+
 ![correct](./assets/images/correct.png)
+
 ![incorrect](./assets/images/incorrect.png)
 
 -	Score is updated based on correct answers.
+
 ![score](./assets/images/score.png)
+
 -	Once all questions are answered, the user is redirected to the end game page.
+
 ![endPage](./assets/images/endPage.png)
 
 3.	Rules Page (rules.html):
 -	Presents the rules of the game to the user.
 -	Provides guidance on how to play, including time limits and scoring.
+
 ![rulesPage](./assets/images/rulesPage.png)
 
 4.	End Game Page (end-game.html):
 -	Displays the final score achieved by the user.
 -	Provides a personalized message based on the score achieved.
 -	Allows users to restart the game or return to the homepage.
+
 ![endPage](./assets/images/endPage.png)
 
 5.	CSS Styling:
@@ -238,6 +250,17 @@ Font-family used  'Montserrat', sans-serif.
 -	Validates user-selected answers against correct answers and updates the score accordingly.
 -	Manages navigation between pages and stores/retrieves the user's final score.
 
+## Future Enhancements
 
+While the current version of the Geography Game offers an engaging experience, there are several features and enhancements that could be added in the future to further enhance the gameplay and user interaction. Some potential additions include:
+
+1.	Difficulty Levels: Allow users to choose between different difficulty levels (easy, medium, hard) to cater to varying levels of geography knowledge and challenge.
+2.	Hint System: Implement a hint system that provides users with clues or additional information to help them answer questions if they're stuck.
+3.	Category Selection: Enable users to select specific categories or topics within geography (e.g., capitals, landmarks, rivers) to focus on areas of interest.
+4.	Multiplayer Mode: Introduce a multiplayer mode where users can compete against friends or other players online in real-time quizzes.
+5.	Leaderboard: Incorporate a leaderboard feature to showcase high scores and rankings among players, promoting competition and engagement.
+6.	Visual Enhancements: Add interactive maps, images, or diagrams related to each question to make the game visually stimulating and educational.
+7.	Sound Effects and Music: Include sound effects for correct and incorrect answers, as well as background music to enhance the overall gaming experience.
+8.	Customization Options: Allow users to customize their game experience by adjusting settings such as timer duration, number of questions, or visual themes.
 
 
