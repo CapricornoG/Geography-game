@@ -20,6 +20,7 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
     - [User Stories](#user-stories)
     - [User Goal](#user-goal)
     - [How to meet user requiremnt](#how-to-meet-user-requiremnt)
+    - [structure for the website:](#structure-for-the-website)
 
 
 ## UX Design
@@ -73,4 +74,36 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
 10.	View the Rules of the Game:
 -	Provide a dedicated "Rules" page where players can learn about the game mechanics, scoring system, and any specific rules or instructions.
 -	Include clear and concise explanations to help users understand how to play the game effectively.
+
+### structure for the website:
+1.	Homepage (index.html):
+-	Welcome message and game logo.
+-	Start Game button.
+-	Option to view game rules.
+2.	Game Page (start-game.html):
+-	Display the game interface.
+-	Timer display for each question.
+-	Score display.
+-	Question number indicator.
+-	Question prompt.
+-	Multiple-choice options for answers.
+-	Navigation buttons to return to the homepage or view game rules.
+3.	Rules Page (rules.html):
+-	Introduction to the game.
+-	Explanation of game rules.
+-	Clarification of scoring system.
+-	Instructions on how to play.
+-	Navigation buttons to start the game or return to the homepage.
+4.	End Game Page (end-game.html):
+-	Display the final score.
+-	Personalised message based on the score achieved.
+-	Option to restart the game.
+-	Option to return to the homepage.
+5.	Assets Folder:
+-	CSS Folder:
+-	Stylesheet (styles.css) for styling the website.
+-	JS Folder:
+-	JavaScript files (script.js and end.js) for implementing game logic and functionality.
+
+
 
