@@ -5,7 +5,57 @@ const optionsElement = document.getElementById('options');
 const timerDisplay = document.getElementById('timer');
 const scoreDisplay = document.getElementById('your-score');
 const questionNumberElement = document.getElementById('question-number');
-const backupQuestions = [];
+const backupQuestions = [
+    {
+        "question": "What is the capital of Italy?",
+        "answers": ["London", "Berlin", "Paris", "Rome"],
+        "correctAnswer": "Rome"
+    },
+    {
+        "question": "What is the currency of Japan?",
+        "answers": ["Yuan", "Euro", "Yen", "Dollar"],
+        "correctAnswer": "Yen"
+    }, {
+        "question": "What is the capital of France?",
+        "answers": ["London", "Berlin", "Paris", "Rome"],
+        "correctAnswer": "Paris"
+    },
+    {
+        "question": "What is the capital of England?",
+        "answers": ["London", "Berlin", "Paris", "Rome"],
+        "correctAnswer": "London"
+    },
+    {
+        "question": "Which country is known as the 'Land of the Rising Sun'?",
+        "answers": ["China", "Japan", "South Korea", "Thailand"],
+        "correctAnswer": "Japan"
+    },
+    {
+        "question": "What is the longest river in the world?",
+        "answers": ["Nile", "Amazon", "Yangtze", "Mississippi"],
+        "correctAnswer": "Nile"
+    },
+    {
+        "question": "Which continent is the least populated?",
+        "answers": ["Africa", "Europe", "Australia", "Antarctica"],
+        "correctAnswer": "Antarctica"
+    },
+    {
+        "question": "What is the official language of Brazil?",
+        "answers": ["Portuguese", "Spanish", "English", "French"],
+        "correctAnswer": "Portuguese"
+    },
+    {
+        "question": "Which desert is the largest in the world?",
+        "answers": ["Sahara Desert", "Arabian Desert", "Gobi Desert", "Antarctic Desert"],
+        "correctAnswer": "Sahara Desert"
+    },
+    {
+        "question": "Which mountain range is the highest in the world?",
+        "answers": ["Rocky Mountains", "Andes", "Himalayas", "Alps"],
+        "correctAnswer": "Himalayas"
+    }
+];
 
 let questions = [];
 let currentQuestionIndex = 0;
@@ -29,22 +79,11 @@ const goGetMeSomething = (url) => {
         })
         .catch(error => {
             console.error("Error fetching questions:", error);
-            fetch('http://localhost:5500/assets/data/backup-question.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch backup questions');
-                    }
-                    return response.json();
-                })
-                .then(backupData => {
-                    questions = backupData;
-                    game.classList.remove('hidden');
-                    loader.classList.add('hidden');
-                    displayQuestion();
-                })
-                .catch(backupError => {
-                    console.error("Error fetching backup questions:", backupError);
-                });
+            console.log("Using backup questions...");
+            questions = backupQuestions;
+            game.classList.remove('hidden');
+            loader.classList.add('hidden');
+            displayQuestion();
         });
 };
 
