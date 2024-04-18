@@ -25,7 +25,11 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
     - [How to meet user requiremnt](#how-to-meet-user-requiremnt)
     - [structure for the website:](#structure-for-the-website)
     - [Wireframe](#wireframe)
+  - [Design Choice](#design-choice)
     - [Colour Scheme](#colour-scheme)
+  - [Icons](#icons)
+  - [Fonts](#fonts)
+  - [Structure](#structure)
 
 
 ## UX Design
@@ -127,7 +131,27 @@ End Page
 
 ![End](./assets/images/end.png)
 
+## Design Choice
 ### Colour Scheme
+
+[Coolors](<https://coolors.co/>) for the colours.
+
 ![Colours](./assets/images/Colours.png)
+
+## Icons
+
+[Font Awesome](<https://fontawesome.com/>), only icon is the globe.
+
+## Fonts
+
+Font-family used  'Montserrat', sans-serif.
+
+## Structure
+
+|Screen Size|Breakpoint|
+|:---:|:---:|
+|x-small|< 480px|
+|small|=> 480px|
+|large|=>768px|
 
 
