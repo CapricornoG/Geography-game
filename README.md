@@ -25,6 +25,7 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
     - [How to meet user requiremnt](#how-to-meet-user-requiremnt)
     - [structure for the website:](#structure-for-the-website)
     - [Wireframe](#wireframe)
+    - [Colour Scheme](#colour-scheme)
 
 
 ## UX Design
@@ -126,5 +127,7 @@ End Page
 
 ![End](./assets/images/end.png)
 
+### Colour Scheme
+![Colours](./assets/images/Colours.png)
 
 
