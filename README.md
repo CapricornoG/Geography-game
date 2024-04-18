@@ -124,4 +124,7 @@ Start-game Page
 
 End Page
 
+![End](./assets/images/end.png)
+
+
 
