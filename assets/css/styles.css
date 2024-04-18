@@ -381,6 +381,7 @@ margin-bottom: 2rem;
 
 .logo {
     font-size: 10rem;
+    margin-top: 5rem;
 }
 
 h1 {
@@ -410,7 +411,7 @@ h1 {
 }
 
 #buttons-game {
-    margin-top: 2.5rem;
+    margin-top: 5rem;
 }
 
 .option {
