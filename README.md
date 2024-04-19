@@ -3,7 +3,7 @@
 Welcome to Geography Game! This project is a web-based quiz game that tests players' knowledge of global geography in a fun and engaging manner.
 
 
-![Responsiveness](./assets/images/responsiveness.png)
+![responsiveness](assets/images/responsiveness.png)
 
 
 ## Goal
