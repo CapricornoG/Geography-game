@@ -177,7 +177,9 @@ Font-family used  'Montserrat', sans-serif.
 -	Provides buttons to navigate to the game page or the rules page.
 
 ![homePage](./assets/images/home.png)
+
 2.	Game Page (start-game.html):
+
 -	Displays the game interface where questions are shown.
 -	Each question has multiple choice options for answers.
 
