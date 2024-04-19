@@ -6,6 +6,8 @@
     - [HTML validation with W3C Markup Validator](#html-validation-with-w3c-markup-validator)
     - [CSS validation with W3C CSS Validator](#css-validation-with-w3c-css-validator)
     - [JavaScript validation with JSHint](#javascript-validation-with-jshint)
+      - [**script.js** JSHint Warnings](#scriptjs-jshint-warnings)
+      - [**end.js** JSHint Warnings](#endjs-jshint-warnings)
     - [Accessibility using Lighthouse accessibility](#accessibility-using-lighthouse-accessibility)
   - [Manual Testing](#manual-testing)
 
@@ -34,7 +36,7 @@ HTML returns **no errors or warnings**.
 
  **JSHint** 
 
- - **script.js** JSHint Warnings 
+ #### **script.js** JSHint Warnings 
 
 The warnings received from JSHint mainly pertain to the use of ES6 features without explicitly specifying ES6 as the target version. Here's a breakdown of the warnings:
 -	'const' and 'let' Declarations: The use of const and let declarations indicates ES6 usage. JSHint suggests explicitly specifying ES6 using esversion: 6 in the configuration.
@@ -54,12 +56,25 @@ to do not have warning I add the comment
 
       /* jshint esversion: 6 */
 
-at the beginning of my script file, **no errors** and **no warnings** are then returing.
+At the end of my script file, **no errors** and **no warnings** are then returing.
 
 <details>
 <summary>update script.js</summary>
 
 ![JSHintupdate](assets/images/script-JSHINT-solution.png)
+
+</details>
+
+
+#### **end.js** JSHint Warnings 
+
+ **no errors** and **no warnings** are then returing.
+
+ 
+<details>
+<summary>end.js</summary>
+
+![endJSHint](assets/images/endJS-JSHINT.png)
 
 </details>
 

@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 const finalScore = document.getElementById('final-score-end');
 const mostRecentScore = localStorage.getItem('mostRecentScore');
 finalScore.innerText = mostRecentScore;
