@@ -19,4 +19,9 @@
 
   #### CSS validation with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 
+  Validate **styles.css** on **W3C**.
+  
+  ![stylesValidation](assets/images/W3C-styles.png)
+
+
 ### Manual Testing
