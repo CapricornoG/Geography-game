@@ -292,7 +292,7 @@ While the current version of the Geography Game offers an engaging experience, t
   
 ## Testing
 
-[Testing](testing.md)
+[Testing Section](testing.md)
 
 
 ## Deployment

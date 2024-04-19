@@ -31,5 +31,36 @@ HTML returns **no errors or warnings**.
 
   ### JavaScript validation using [JSHint](https://jshint.com/)
 
+ **JSHint** 
+
+ - **script.js** JSHint Warnings 
+
+The warnings received from JSHint mainly pertain to the use of ES6 features without explicitly specifying ES6 as the target version. Here's a breakdown of the warnings:
+-	'const' and 'let' Declarations: The use of const and let declarations indicates ES6 usage. JSHint suggests explicitly specifying ES6 using esversion: 6 in the configuration.
+-	Arrow Function Syntax: Arrow function syntax (() => {}) is also an ES6 feature. It is advisable to specify ES6 explicitly if arrow functions are used.
+-	Spread Operator: The use of the spread operator (...) is an ES6 feature. It is recommended to target ES6 explicitly in the configuration.
+-	Template Literal Syntax: Template literal syntax (backticks) is an ES6 feature. It is advisable to specify ES6 explicitly if template literals are used.|
+
+
+<details>
+<summary>script.js</summary>
+
+![JSHint](assets/images/script-JSHINT.png)
+
+</details>
+
+to do not have warning I add the comment 
+
+      /* jshint esversion: 6 */
+
+at the beginning of my script file, **no errors** and **no warnings** are then returing.
+
+<details>
+<summary>update script.js</summary>
+
+![JSHintupdate](assets/images/script-JSHINT-solution.png)
+
+</details>
+
 
 ## Manual Testing

@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 const game = document.getElementById('game-page');
 const loader = document.getElementById('loader');
 const questionElement = document.getElementById('question');
