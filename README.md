@@ -285,6 +285,10 @@ While the current version of the Geography Game offers an engaging experience, t
 ## Tools
 * [Coolors](<https://coolors.co/>)
 * [Balsamiq](https://balsamiq.com/wireframes/ "Balsamiq")
+* [npm](https://www.npmjs.com/)
+* [Git](https://git-scm.com/)
+* [GitHub](https://github.com/)
+* [VS Code](https://code.visualstudio.com/)
   
 ## Testing
 
