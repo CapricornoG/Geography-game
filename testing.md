@@ -5,7 +5,7 @@
   - [Automated testing](#automated-testing)
     - [HTML validation with W3C Markup Validator](#html-validation-with-w3c-markup-validator)
     - [CSS validation with W3C CSS Validator](#css-validation-with-w3c-css-validator)
-    - [JavaScript validation using JSHint](#javascript-validation-using-jshint)
+    - [JavaScript validation with JSHint](#javascript-validation-with-jshint)
   - [Manual Testing](#manual-testing)
 
 
@@ -29,7 +29,7 @@ HTML returns **no errors or warnings**.
 
   CSS returns **no errors or warnings**.
 
-  ### JavaScript validation using [JSHint](https://jshint.com/)
+  ### JavaScript validation with [JSHint](https://jshint.com/)
 
  **JSHint** 
 
