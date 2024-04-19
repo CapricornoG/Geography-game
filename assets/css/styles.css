@@ -177,13 +177,13 @@ h3{
 
 .clr-green{
     font-weight: 900;
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: var(--color-green);
 }
 
 .clr-red{
     font-weight: 900;
-    font-size: 2rem;
+    font-size: 1.6rem;
     color:var(--color-red);
 }
 
@@ -432,6 +432,14 @@ ol,
 li {
     font-size: 1.8rem;
     margin-bottom: 1rem;
+}
+
+.clr-green{
+    font-size: 2rem;
+}
+
+.clr-red{
+    font-size: 2rem;
 }
 
 .container ol {
