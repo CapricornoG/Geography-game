@@ -6,6 +6,7 @@
     - [HTML validation with W3C Markup Validator](#html-validation-with-w3c-markup-validator)
     - [CSS validation with W3C CSS Validator](#css-validation-with-w3c-css-validator)
     - [JavaScript validation with JSHint](#javascript-validation-with-jshint)
+    - [Accessibility using Lighthouse accessibility](#accessibility-using-lighthouse-accessibility)
   - [Manual Testing](#manual-testing)
 
 
@@ -61,6 +62,18 @@ at the beginning of my script file, **no errors** and **no warnings** are then r
 ![JSHintupdate](assets/images/script-JSHINT-solution.png)
 
 </details>
+
+### Accessibility using [Lighthouse accessibility](https://developer.chrome.com/docs/lighthouse/accessibility/)
+
+|Pages|mobile|Desktop|
+  |:--:|:--:|:--:|
+  |**index.html**|![LH-mobile](assets/images/LH-mobile-index.png)|![LH-mobile](assets/images/LH-desktop-index.png)
+  |**start-game.html**| |
+  |**rules.html**|||
+  |**end-game.html**|||
+
+
+
 
 
 ## Manual Testing
