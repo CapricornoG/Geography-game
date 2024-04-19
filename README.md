@@ -2,6 +2,10 @@
 
 Welcome to Geography Game! This project is a web-based quiz game that tests players' knowledge of global geography in a fun and engaging manner.
 
+
+![Responsiveness](./assets/images/responsiveness.png)
+
+
 ## Goal
 
 The Geography Quiz Game aims to give an interesting and instructive experience for players of all ages who want to learn about nations, capitals, monuments, and other topics from across the world. Answering multiple-choice questions allows users to push themselves, increase their geography knowledge, and compete against friends to see who can get the greatest score.
@@ -10,14 +14,43 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
 
 [Deployed site here](<https://capricornog.github.io/Geography-game/>)
 
+
+## responsiveness 
+
+<details>
+<summary>index Page</summary>
+
 ![Am I Responsive Screenshot](./assets/images/responsive-home.png)
+
+</details>
+
+<details>
+<summary>Rules Page</summary>
+
 ![Am I Responsive rules](./assets/images/responsive-rules.png)
+
+</details>
+
+
+<details>
+<summary>Start Game page</summary>
+
 ![Am I Responsive game](./assets/images/responsive-game.png)
+
+</details>
+
+
+<details>
+<summary> End page</summary>
+
 ![Am I Responsive end](./assets/images/responsive-end.png)
+
+</details>
 
 ## Table of content
 - [Geography game](#geography-game)
   - [Goal](#goal)
+  - [responsiveness](#responsiveness)
   - [Table of content](#table-of-content)
   - [UX Design](#ux-design)
     - [User Stories](#user-stories)
