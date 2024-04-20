@@ -17,6 +17,11 @@
   - [Unresolved Issues](#unresolved-issues)
     - [1. Bug Description: **Error Fetching Questions from External API**](#1-bug-description-error-fetching-questions-from-external-api)
     - [2. Bug Description: **Unable to Load Backup Questions**](#2-bug-description-unable-to-load-backup-questions)
+  - [Fixed Bugs](#fixed-bugs)
+    - [1. Bug Description: **Inconsistent Colour Usage Hindering Question Visibility**](#1-bug-description-inconsistent-colour-usage-hindering-question-visibility)
+    - [2. Bug Description: ***Incorrect Update of Question Number and Score on End Page***](#2-bug-description-incorrect-update-of-question-number-and-score-on-end-page)
+    - [3. Bug Description: ***Timer Not Restarting for Each New Question***](#3-bug-description-timer-not-restarting-for-each-new-question)
+    - [4. Bug Description: ***Inadequate Colour Contrast for Correct Answers***](#4-bug-description-inadequate-colour-contrast-for-correct-answers)
 
 
 ## Automated testing
@@ -219,3 +224,39 @@ To address this issue, I opted to load the backup questions directly from the Ja
 5. With this modification, the website is now able to load backup questions directly from the JavaScript file, ensuring consistent functionality regardless of the server status.
 
 This approach ensures that the quiz functionality remains robust and reliable, with backup questions readily available within the JavaScript code itself.
+
+## Fixed Bugs
+
+### 1. Bug Description: **Inconsistent Colour Usage Hindering Question Visibility**
+
+**Problem:**
+Previously, the quiz application used green as the primary colour for various elements, including question text, answer options, and other UI components. However, this colour choice led to poor visibility and readability, especially when displaying correct answers.
+
+**Solution:**
+To address this issue and improve the visibility of questions and answer options, I implemented a solution to use different colours strategically, ensuring better contrast and clarity in the UI.
+
+### 2. Bug Description: ***Incorrect Update of Question Number and Score on End Page***
+
+***Problem:***
+After answering the last question, the quiz application incorrectly displayed an additional question number before transitioning to the end page. Additionally, the end page did not update the score accurately.
+
+***Solution:***
+I fixed the logic responsible for updating the question number and score on the end page to ensure correct display and accuracy.
+
+### 3. Bug Description: ***Timer Not Restarting for Each New Question***
+
+***Problem:***
+The timer in the quiz application did not reset when displaying a new question, leading to inconsistent behaviour and potentially incorrect timing for answering questions.
+
+***Solution:***
+I modified the timer functionality to reset properly for each new question, ensuring accurate timing and a consistent user experience.
+
+### 4. Bug Description: ***Inadequate Colour Contrast for Correct Answers***
+
+***Problem:***
+The quiz application used green colour for everything, making it difficult to differentiate between correct and incorrect answers due to poor colour contrast.
+
+***Solution:***
+I adjusted the colour scheme to use blue for questions and answer options, reserving green specifically for highlighting correct answers, thus improving colour contrast and enhancing visibility.
+
+By addressing these bugs, the quiz application now functions more reliably and provides an improved user experience with better functionality, readability, and visual clarity.
