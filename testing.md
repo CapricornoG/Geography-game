@@ -93,7 +93,7 @@ At the end of my script file, **no errors** and **no warnings** are then returin
 
 ## Manual Testing
 
-Manual test cases based on the **user stories** .
+Manual test cases based on the **User Stories** .
 
 |User Story|	Test Case|	Steps|	Expected Result|Outcome|
 |:--:|:--:|:--:|:---:|:---:|
@@ -103,3 +103,17 @@ Manual test cases based on the **user stories** .
 |Know Correctness of Answers|Start a new game.<br> Answer questions correctly and incorrectly. 	|1. Start a new game.<br> 2. Answer questions correctly and incorrectly. 	|After submitting an answer, the player should receive immediate feedback indicating whether the answer is correct or incorrect.<br> Correct answers should be highlighted in green, and incorrect answers should be highlighted in red. | ![answer](assets/images/answer.png)|
 |Track Current Score	|Start a new game.<br> Answer questions and observe the score. 	|1. Start a new game.<br> 2. Answer questions and observe the score. 	|The player's current score should be displayed and updated after answering each question.<br> Each correct answer should increment the score by one point. | ![scoreUpdate](assets/images/scoreUpdate.png)|
 |End Game and View Final Score	|Answer all questions in the game.<br> Observe the end game screen. |1. Answer all questions in the game.<br> 2. Observe the end game screen. 	|After answering all questions, the game should end automatically.<br> The player should be directed to the end game screen, where the final score is displayed. | ![scoreEnd](assets/images/scoreEnd.png)|
+
+
+Manual test cases based on the **User Goal** .
+
+| Test Scenario                                    | Test Case                                                           | Steps                                                                                  | Expected Result                                                                                               |
+|--------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| **Assess Knowledge**                            |                                                                   |                                                                                        |                                                                                                               |
+|                                                  | Users attempt to answer questions on countries, capitals, landmarks, and other geographical facts. | 1. Start a new game. <br> 2. Answer the displayed questions.                             | - The questions should cover a wide range of topics related to world geography. <br> - Users should feel challenged by the difficulty level of the questions.     |
+| **Acquire New Knowledge**                       |                                                                   |                                                                                        |                                                                                                               |
+|                                                  | Users play the quiz game to acquire new facts and knowledge about global geography. | 1. Start a new game. <br> 2. Observe the questions and answers. <br> 3. Note down any new facts learned during the game. | - Users should encounter questions that provide informative answers, expanding their knowledge of world geography. |
+| **Experience Challenging Gameplay**             |                                                                   |                                                                                        |                                                                                                               |
+|                                                  | Users expect a demanding experience that will test their brains and problem-solving abilities. | 1. Start a new game. <br> 2. Observe the complexity of the questions. <br> 3. Analyse the time limit provided for each question. | - Users should find the questions challenging enough to engage their problem-solving skills. <br> - The time limit for each question should add to the overall challenge without feeling too rushed. |
+| **Improve Geography Skills**                    |                                                                   |                                                                                        |                                                                                                               |
+|                                                  | Users hope to have a better grasp of global geography through playing the game. | 1. Start a new game. <br> 2. Answer questions and observe performance. <br> 3. Reflect on the knowledge gained during the game. | - Users should feel that their global geography skills have improved after playing the game, either through learning new facts or reinforcing existing knowledge. |
