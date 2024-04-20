@@ -260,3 +260,9 @@ The quiz application used green colour for everything, making it difficult to di
 I adjusted the colour scheme to use blue for questions and answer options, reserving green specifically for highlighting correct answers, thus improving colour contrast and enhancing visibility.
 
 By addressing these bugs, the quiz application now functions more reliably and provides an improved user experience with better functionality, readability, and visual clarity.
+
+\
+&nbsp;
+[Back to README](README.md)
+\
+&nbsp;
