@@ -78,7 +78,13 @@ The Geography Quiz Game aims to give an interesting and instructive experience f
   - [Tools](#tools)
   - [Testing](#testing)
   - [Deployment](#deployment)
-  - [Credit](#credit)
+  - [Credits](#credits)
+    - [External APIs](#external-apis)
+    - [Libraries](#libraries)
+    - [Tools](#tools-1)
+    - [Inspirations and Sources](#inspirations-and-sources)
+    - [Acknowledgements](#acknowledgements)
+    - [Special Thanks](#special-thanks)
 
 
 ## UX Design
@@ -339,4 +345,52 @@ Then select 'Pages' on the side navigation.
 * Now the website is now live on <https://capricornog.github.io/Geography-game/>
 * If any changes are required, they can be done, commited and pushed to GitHub and the changes will be updated.
 
-## Credit
+## Credits
+
+### External APIs
+- [Open Trivia Database (opentdb)](https://opentdb.com): Used for retrieving trivia questions and answers for the game.
+
+### Libraries
+- [Font Awesome](https://fontawesome.com/): Used for icons and graphics throughout the game interface.
+- [Montserrat Font](https://fonts.google.com/specimen/Montserrat): Used for typography and text elements in the game.
+- [Balsamiq](https://balsamiq.com/): Used for creating wireframes and mockups of the game interface.
+- [Coloors](https://coolors.co/): Used for selecting color schemes and palettes for the game design.
+
+
+### Tools
+- [GitHub](https://github.com/): Version control and collaboration platform used for hosting the game repository and managing project tasks.
+- [JSHint](https://jshint.com/): Used for JavaScript code analysis and validation to ensure code quality and best practices.
+
+### Inspirations and Sources
+- [Build A Quiz App With HTML, CSS, and JavaScript by James Q Quick](https://github.com/jamesqquick/Build-A-Quiz-App-With-HTML-CSS-and-JavaScript): Provided inspiration and ideas for building the quiz game.
+- [James Q Quick](https://github.com/jamesqquick): Creator of the tutorial series and source of inspiration.
+- [YouTube Playlist: Build A Quiz App With HTML, CSS, and JavaScript by James Q Quick](https://www.youtube.com/playlist?list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx): Tutorial series followed for learning and implementing various features of the game.
+- [Code Institute](https://codeinstitute.net): Provided structured learning resources and support for web development skills.
+- [Slack Community](https://slack.com/intl/en-gb): Engaged in the Slack community for Code Institute, receiving valuable support, feedback, and guidance throughout the development process.
+
+### Acknowledgements
+- [Simen Daehlin](https://github.com/Eventyret "Simen Daehlin"): my mentor for the project.
+  
+- #### Mentor's Suggestions
+
+During the development process, my mentor provided valuable guidance and suggestions for improving the project. Some of the key recommendations included:
+
+1. **Single-Page Design**: It was suggested to consolidate all content into a single-page design to streamline the user experience and reduce loading times. This would involve combining the homepage, game page, rules page, and end game page into a single cohesive layout.
+
+2. **Responsive CSS**: To enhance accessibility across various devices, it was recommended to prioritise responsive design principles. This entails designing CSS styles with a mobile-first approach, ensuring optimal display and functionality on small screens before scaling up to larger devices.
+
+3. **Script Organisation**: It was advised to organise JavaScript files more efficiently by consolidating the `script.js` and `end.js` files into a single script. This consolidation would improve code readability and maintenance, making it easier to manage functionality across different sections of the game.
+
+While these suggestions were not fully implemented due to time constraints, they remain valuable considerations for future development and optimisation of the project. Incorporating these recommendations would contribute to a more polished and user-friendly experience for players.
+
+
+
+### Special Thanks
+- My cohort facilitator **Amy Richardson**
+- [OpenAI](https://openai.com/): Providing ChatGPT, which assisted in brainstorming and development discussions.
+- Family and friends for their support and feedback during the development process.
+
+
+\
+&nbsp;
+[Back to Top](#table-of-content)
