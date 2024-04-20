@@ -14,6 +14,9 @@
     - [Testing plan for **User Goal** .](#testing-plan-for-user-goal-)
     - [Testing plan for **Features** .](#testing-plan-for-features-)
     - [Browser and device compatibility](#browser-and-device-compatibility)
+  - [Unresolved Issues](#unresolved-issues)
+    - [1. Bug Description: **Error Fetching Questions from External API**](#1-bug-description-error-fetching-questions-from-external-api)
+    - [2. Bug Description: **Unable to Load Backup Questions**](#2-bug-description-unable-to-load-backup-questions)
 
 
 ## Automated testing
@@ -180,3 +183,39 @@ At the end of my script file, **no errors** and **no warnings** are then returin
 |                                     | Device Compatibility Test:                                                     |                                                                                                                 |                                                                                                                                                                                          |
 |                                     | Samsung Galaxy S21                                                              | Game adapted well to the screen size and touch functionality worked as expected.                                |                                                                                                                                                                                          |
 |                                     | iPhone SE                                                                       | Game adapted well to the screen size and touch functionality worked as expected.                                |                                                                                                                                                                                          |
+
+
+## Unresolved Issues
+### 1. Bug Description: **Error Fetching Questions from External API**
+
+**Problem:**
+When attempting to fetch questions from the external API (`https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple`), the browser returns a status code `429`, indicating "Too Many Requests". This prevents the questions from being fetched, leading to an error in the quiz functionality.
+
+**Solution:**
+To resolve this issue and ensure uninterrupted quiz functionality, I implemented a fallback mechanism to load backup questions from the local data source (`backup-question.json`) when fetching from the external API fails.
+
+**Steps Taken:**
+1. Modified the `goGetMeSomething` function in `script.js` to handle errors when fetching questions from the external API.
+2. Added a `catch` block to handle the `429` error (Too Many Requests) returned by the external API.
+3. In the `catch` block, I logged the error message and proceeded to load backup questions from the local data source (`backup-question.json`).
+4. By implementing this fallback mechanism, the quiz functionality remains robust and unaffected by errors in fetching questions from the external API.
+5. Additionally, I ensured that the quiz continues to function seamlessly by displaying backup questions to the user in case of any issues with the external API.
+
+This solution ensures that the quiz remains functional and provides a consistent user experience, regardless of any errors encountered while fetching questions from the external API.
+
+### 2. Bug Description: **Unable to Load Backup Questions**
+
+**Problem:**
+When the server is not active, the website is unable to fetch backup questions from the `backup-question.json` file using the JavaScript `fetch()` API. This results in the quiz not functioning properly when deployed without an active server.
+
+**Solution:**
+To address this issue, I opted to load the backup questions directly from the JavaScript file (`script.js`) instead of relying on fetching from the server.
+
+**Steps Taken:**
+1. Instead of fetching questions from the server, I included the backup questions directly in the JavaScript file (`script.js`) as an array named `backupQuestions`.
+2. Modified the logic in the `goGetMeSomething` function in `script.js` to handle the case where fetching from the server fails.
+3. Added a `catch` block to handle errors when fetching questions from the server.
+4. In the `catch` block, I logged the error message and assigned the `backupQuestions` array to the `questions` variable, ensuring that the quiz functions properly even when the server is not available.
+5. With this modification, the website is now able to load backup questions directly from the JavaScript file, ensuring consistent functionality regardless of the server status.
+
+This approach ensures that the quiz functionality remains robust and reliable, with backup questions readily available within the JavaScript code itself.
