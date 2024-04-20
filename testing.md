@@ -92,3 +92,14 @@ At the end of my script file, **no errors** and **no warnings** are then returin
 
 
 ## Manual Testing
+
+Manual test cases based on the **user stories** .
+
+|User Story|	Test Case|	Steps|	Expected Result|Outcome|
+|:--:|:--:|:--:|:---:|:---:|
+|Start a New Game|	Open the game's homepage.<br> Click on the "Start Game" button.|1. Open the game's homepage.<br> 2. Click on the "Start Game" button.	|The game should start, and the player should be directed to the game page with the first question displayed.|![click-start](assets/images/Click%20on%20the%20Start%20Game.png)|
+|Receive Multiple-Choice Questions|	Start a new game.<br> Answer the displayed questions.	|1. Start a new game.<br> 2. Answer the displayed questions.	|The player should receive multiple-choice questions related to world geography.<br> Each question should have multiple answer options for the player to choose from.| image|
+|Timer for Each Question	|Start a new game.<br> Observe the timer for each question.	|1. Start a new game.<br> 2. Observe the timer for each question.	|A timer should be displayed for each question, indicating the remaining time for the player to answer.<br> The timer should count down from the specified time limit (e.g., 30 seconds).| image|
+|Know Correctness of Answers|Start a new game.<br> Answer questions correctly and incorrectly. 	|1. Start a new game.<br> 2. Answer questions correctly and incorrectly. 	|After submitting an answer, the player should receive immediate feedback indicating whether the answer is correct or incorrect.<br> Correct answers should be highlighted in green, and incorrect answers should be highlighted in red. | image|
+|Track Current Score	|Start a new game.<br> Answer questions and observe the score. 	|1. Start a new game.<br> 2. Answer questions and observe the score. 	|The player's current score should be displayed and updated after answering each question.<br> Each correct answer should increment the score by one point. | image|
+|End Game and View Final Score	|Answer all questions in the game.<br> Observe the end game screen. |1. Answer all questions in the game.<br> 2. Observe the end game screen. 	|After answering all questions, the game should end automatically.<br> The player should be directed to the end game screen, where the final score is displayed. | image|
